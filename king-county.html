@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King County Proposition 1 Analysis - AFIS Funding</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>King County Proposition 1</h1>
+            <p class="subtitle">Automated Fingerprint Identification System (AFIS) Funding Analysis</p>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="prop50.html" class="nav-link">CA Prop 50</a>
+            <a href="king-county.html" class="nav-link active">King County</a>
+            <a href="larimer-county.html" class="nav-link">Larimer County</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+            <div class="container">
+                <h2>What is King County Proposition 1?</h2>
+                <div class="card">
+                    <p class="lead">King County Proposition 1, approved by voters on <strong>April 22, 2025</strong>, authorized a seven-year property tax levy beginning in 2026 to fund the Regional Automated Fingerprint Identification System (AFIS).</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h3>Purpose</h3>
+                            <p>Fund the Regional AFIS, a forensic tool used across all cities and unincorporated areas of King County to store and match fingerprint records for crime-solving purposes.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Tax Rate</h3>
+                            <p>The levy imposes a tax rate of <strong>2.75 cents per $1,000</strong> of assessed property value. For a median-priced home, this equates to approximately $15-20 per year.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Duration</h3>
+                            <p>Seven-year property tax levy beginning in <strong>2026</strong>, running through <strong>2032</strong>.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Election Result</h3>
+                            <p><strong>Approved</strong> with <strong>59.72%</strong> of voters in favor (151,495 votes in favor, 102,189 against).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Statistics Dashboard -->
+                <div class="dashboard">
+                    <h2>Key Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">59.72%</div>
+                            <div class="stat-label">Approval Rate</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">151,495</div>
+                            <div class="stat-label">Votes in Favor</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">102,189</div>
+                            <div class="stat-label">Votes Against</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">2026-2032</div>
+                            <div class="stat-label">Funding Period</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What is AFIS Section -->
+                <div class="explanation-section">
+                    <h2>Understanding AFIS</h2>
+                    <div class="explanation-card">
+                        <h3>What is the Automated Fingerprint Identification System?</h3>
+                        <p>The Regional Automated Fingerprint Identification System (AFIS) is a critical forensic tool that:</p>
+                        <ul class="feature-list">
+                            <li>✓ Stores fingerprint records from across King County</li>
+                            <li>✓ Matches fingerprints found at crime scenes to known individuals</li>
+                            <li>✓ Serves all 39 cities and unincorporated areas in King County</li>
+                            <li>✓ Is used by law enforcement agencies throughout the region</li>
+                            <li>✓ Has been instrumental in solving thousands of crimes</li>
+                        </ul>
+                        
+                        <div class="mechanism-grid">
+                            <div class="mechanism-card">
+                                <h3>🔍 How AFIS Works</h3>
+                                <p>When law enforcement collects fingerprints from a crime scene, AFIS compares them against a database of millions of fingerprint records. This rapid matching helps identify suspects and solve cases more efficiently.</p>
+                            </div>
+                            
+                            <div class="mechanism-card">
+                                <h3>💰 Cost to Taxpayers</h3>
+                                <p>For a home valued at $700,000 (approximately median home value in King County), the annual cost is about $19.25 per year. This equates to less than $0.05 per day.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vote Analysis -->
+                <div class="section section-alt">
+                    <div class="container">
+                        <h2>Vote Analysis</h2>
+                        <div class="viz-grid">
+                            <div class="viz-card">
+                                <h3>Election Results</h3>
+                                <canvas id="resultsChart"></canvas>
+                            </div>
+                            <div class="viz-card">
+                                <h3>Voter Turnout</h3>
+                                <canvas id="turnoutChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact Analysis -->
+                <div class="section">
+                    <div class="container">
+                        <h2>Impact Analysis</h2>
+                        
+                        <div class="analysis-grid">
+                            <div class="analysis-card">
+                                <h3>Public Safety Impact</h3>
+                                <ul>
+                                    <li>Maintains critical forensic tool for law enforcement</li>
+                                    <li>Enables faster crime-solving through fingerprint matching</li>
+                                    <li>Supports all 39 cities and unincorporated areas</li>
+                                    <li>Continuation of successful crime-fighting tool</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="analysis-card">
+                                <h3>Fiscal Impact</h3>
+                                <ul>
+                                    <li>Minimal cost to homeowners ($15-20/year for median home)</li>
+                                    <li>Seven-year funding commitment provides stability</li>
+                                    <li>Small tax rate: 2.75 cents per $1,000 assessed value</li>
+                                    <li>Predictable funding stream for essential service</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="analysis-card">
+                                <h3>Regional Impact</h3>
+                                <ul>
+                                    <li>Shared resource across all King County jurisdictions</li>
+                                    <li>Ensures equitable access to forensic services</li>
+                                    <li>Regional cooperation in public safety</li>
+                                    <li>Prevents gaps in law enforcement capabilities</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="analysis-card">
+                                <h3>Voter Sentiment</h3>
+                                <ul>
+                                    <li>Strong approval margin (59.72%)</li>
+                                    <li>Clear majority support for public safety funding</li>
+                                    <li>Bipartisan support across political spectrum</li>
+                                    <li>Demonstrates public commitment to law enforcement tools</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sources Section -->
+                <section id="sources" class="section section-alt">
+                    <div class="container">
+                        <h2>Sources & Citations</h2>
+                        <div class="sources-container">
+                            <div class="source-category">
+                                <h3>Official Government Sources</h3>
+                                <ul class="sources-list">
+                                    <li>
+                                        <a href="https://results.vote.wa.gov/results/20250422/king/" target="_blank" rel="noopener noreferrer">
+                                            Washington Secretary of State - King County Election Results
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.kingcounty.gov/elections" target="_blank" rel="noopener noreferrer">
+                                            King County Elections Office
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="source-category">
+                                <h3>News & Media Coverage</h3>
+                                <ul class="sources-list">
+                                    <li>
+                                        <a href="https://seatacblog.com/2025/04/23/election-results-1-king-county-proposition-no-1-passing-with-nearly-60-approval/" target="_blank" rel="noopener noreferrer">
+                                            SeaTac Blog - King County Proposition 1 Election Results
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>This analysis is for informational purposes only. Data compiled from publicly available sources.</p>
+            <p class="footer-note">Last updated: November 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Results Chart
+            const resultsCtx = document.getElementById('resultsChart').getContext('2d');
+            new Chart(resultsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['In Favor', 'Against'],
+                    datasets: [{
+                        data: [151495, 102189],
+                        backgroundColor: ['#2a9d8f', '#e63946'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = 253684;
+                                    const percentage = ((context.parsed / total) * 100).toFixed(2);
+                                    return context.label + ': ' + context.parsed.toLocaleString() + ' (' + percentage + '%)';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Turnout Chart (estimated)
+            const turnoutCtx = document.getElementById('turnoutChart').getContext('2d');
+            new Chart(turnoutCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Votes Cast', 'Registered Voters (Est.)'],
+                    datasets: [{
+                        label: 'Voters',
+                        data: [253684, 1400000],
+                        backgroundColor: ['#4285f4', '#90caf9'],
+                        borderColor: '#1a5490',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.parsed.y.toLocaleString() + ' voters';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Voters'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

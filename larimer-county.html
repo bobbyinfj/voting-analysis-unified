@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larimer County Elections Analysis - Fort Collins, Colorado</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Larimer County Elections</h1>
+            <p class="subtitle">Fort Collins & County-Wide Election Analysis</p>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="prop50.html" class="nav-link">CA Prop 50</a>
+            <a href="king-county.html" class="nav-link">King County</a>
+            <a href="larimer-county.html" class="nav-link active">Larimer County</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+            <div class="container">
+                <h2>Larimer County Elections Overview</h2>
+                <div class="card">
+                    <p class="lead">Larimer County, Colorado, encompassing Fort Collins and surrounding communities, conducts regular elections for local offices and ballot measures affecting county services, transportation, and quality of life.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h3>Location</h3>
+                            <p>Larimer County is located in Northern Colorado, home to Fort Collins, Loveland, and Estes Park. The county seat is Fort Collins.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Population</h3>
+                            <p>Approximately <strong>359,000</strong> residents, making it one of Colorado's fastest-growing counties.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Key Elections</h3>
+                            <p>County commissioner races, mayor of Fort Collins, city council seats, and various ballot measures on transportation, services, and infrastructure.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>2025 Elections</h3>
+                            <p>Coordinated Election scheduled for <strong>November 4, 2025</strong>, with various ballot measures and local offices on the ballot.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Statistics Dashboard -->
+                <div class="dashboard">
+                    <h2>Key Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">359,000</div>
+                            <div class="stat-label">Population</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Major Cities</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Nov 2025</div>
+                            <div class="stat-label">Next Election</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Fort Collins</div>
+                            <div class="stat-label">County Seat</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transportation Funding Measure -->
+                <div class="explanation-section">
+                    <h2>2025 Transportation Funding Measure</h2>
+                    <div class="explanation-card">
+                        <h3>Proposed Sales and Use Tax</h3>
+                        <p>In August 2025, the Larimer County Board of Commissioners considered placing a transportation funding measure on the November 2025 ballot:</p>
+                        
+                        <div class="mechanism-grid">
+                            <div class="mechanism-card">
+                                <h3>💰 Tax Details</h3>
+                                <ul>
+                                    <li><strong>Tax Rate:</strong> 0.15% sales and use tax</li>
+                                    <li><strong>Annual Revenue:</strong> Approximately $15 million</li>
+                                    <li><strong>Duration:</strong> 15-year sunset provision</li>
+                                    <li><strong>Exemptions:</strong> Groceries, gasoline, diapers, prescription drugs</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mechanism-card">
+                                <h3>🛣️ Funding Priorities</h3>
+                                <ul>
+                                    <li>Road safety improvements</li>
+                                    <li>Emergency readiness</li>
+                                    <li>Congestion relief</li>
+                                    <li>Critical transportation infrastructure</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="redistricting-explanation">
+                            <h3>Why This Matters</h3>
+                            <p>Larimer County has experienced rapid population growth, placing increased pressure on transportation infrastructure. This measure would provide dedicated funding for:</p>
+                            <ul>
+                                <li><strong>Safety improvements</strong> - Reducing accidents and improving road conditions</li>
+                                <li><strong>Capacity expansion</strong> - Addressing traffic congestion on major corridors</li>
+                                <li><strong>Emergency preparedness</strong> - Ensuring roads can handle emergency evacuations</li>
+                                <li><strong>Maintenance</strong> - Preserving existing infrastructure investments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fort Collins Elections -->
+                <div class="section section-alt">
+                    <div class="container">
+                        <h2>Fort Collins City Elections</h2>
+                        <div class="card">
+                            <h3>Mayor and City Council</h3>
+                            <p>Fort Collins holds regular elections for:</p>
+                            <ul class="feature-list">
+                                <li>✓ Mayor (at-large, serves 4-year term)</li>
+                                <li>✓ City Council Districts (6 districts, staggered terms)</li>
+                                <li>✓ Various city charter amendments and ballot measures</li>
+                            </ul>
+                            
+                            <div class="analysis-grid" style="margin-top: 2rem;">
+                                <div class="analysis-card">
+                                    <h3>Election Cycle</h3>
+                                    <p>Municipal elections typically occur in April of odd-numbered years, with runoff elections if needed.</p>
+                                </div>
+                                
+                                <div class="analysis-card">
+                                    <h3>Key Issues</h3>
+                                    <p>Common topics include growth management, affordable housing, transportation, environmental sustainability, and economic development.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- County Governance -->
+                <div class="section">
+                    <div class="container">
+                        <h2>Larimer County Governance</h2>
+                        
+                        <div class="analysis-grid">
+                            <div class="analysis-card">
+                                <h3>Board of County Commissioners</h3>
+                                <ul>
+                                    <li>Three commissioners elected county-wide</li>
+                                    <li>Staggered four-year terms</li>
+                                    <li>Oversee county services, budget, and policy</li>
+                                    <li>Represent both urban and rural interests</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="analysis-card">
+                                <h3>Key Services</h3>
+                                <ul>
+                                    <li>Public safety and emergency services</li>
+                                    <li>Road maintenance and transportation</li>
+                                    <li>Public health and human services</li>
+                                    <li>Parks and open spaces</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="analysis-card">
+                                <h3>Voting Patterns</h3>
+                                <ul>
+                                    <li>Generally competitive politically</li>
+                                    <li>Mix of urban and rural voters</li>
+                                    <li>Strong emphasis on local control</li>
+                                    <li>Active civic engagement</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="analysis-card">
+                                <h3>Ballot Measures</h3>
+                                <ul>
+                                    <li>Transportation funding</li>
+                                    <li>Open space preservation</li>
+                                    <li>Service enhancements</li>
+                                    <li>Infrastructure improvements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sources Section -->
+                <section id="sources" class="section section-alt">
+                    <div class="container">
+                        <h2>Sources & Citations</h2>
+                        <div class="sources-container">
+                            <div class="source-category">
+                                <h3>Official Government Sources</h3>
+                                <ul class="sources-list">
+                                    <li>
+                                        <a href="https://www.larimer.gov/clerk/elections" target="_blank" rel="noopener noreferrer">
+                                            Larimer County Clerk & Recorder - Elections
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.larimer.gov/spotlights/2025/08/8/larimer-county-commissioners-consider-transportation-funding-measure-november-ballot" target="_blank" rel="noopener noreferrer">
+                                            Larimer County - Transportation Funding Measure
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.fcgov.com/elections" target="_blank" rel="noopener noreferrer">
+                                            City of Fort Collins - Elections
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="source-category">
+                                <h3>Demographic Data</h3>
+                                <ul class="sources-list">
+                                    <li>
+                                        <a href="https://www.census.gov" target="_blank" rel="noopener noreferrer">
+                                            U.S. Census Bureau - Larimer County Data
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>This analysis is for informational purposes only. Data compiled from publicly available sources.</p>
+            <p class="footer-note">Last updated: November 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
+
