@@ -663,6 +663,71 @@ body {
     filter: brightness(1.1);
 }
 
+/* Arguments Section */
+.arguments-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.arguments-column h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.argument-group {
+    margin-bottom: 2rem;
+}
+
+.argument-group h4 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.argument-card {
+    background: var(--bg-alt);
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+    box-shadow: var(--shadow);
+}
+
+.argument-card.support {
+    border-left-color: #4285f4;
+}
+
+.argument-card.oppose {
+    border-left-color: var(--secondary-color);
+}
+
+.argument-card p {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.argument-source {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    display: block;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 968px) {
+    .arguments-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Source Citations */
 .source-ref {
     position: relative;
