@@ -12,6 +12,10 @@
 <body>
     <header class="header">
         <div class="container">
+            <div class="last-updated" id="lastUpdated">
+                <div class="update-label">Last Updated</div>
+                <div class="update-time" id="updateTime">Loading...</div>
+            </div>
             <h1>Voting Analysis Hub</h1>
             <p class="subtitle">Comprehensive Analysis of Elections and Ballot Measures</p>
         </div>
@@ -113,5 +117,19 @@
             <p class="footer-note">Last updated: November 2025</p>
         </div>
     </footer>
+    <script>
+        // Load and display last updated timestamp
+        fetch('timestamp.json')
+            .then(response => response.json())
+            .then(data => {
+                const updateTimeEl = document.getElementById('updateTime');
+                if (updateTimeEl && data.lastUpdated) {
+                    updateTimeEl.textContent = data.lastUpdated;
+                }
+            })
+            .catch(err => {
+                console.log('Could not load timestamp');
+            });
+    </script>
 </body>
 </html>
