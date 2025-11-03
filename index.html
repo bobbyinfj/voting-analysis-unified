@@ -1,305 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voting Analysis Hub - California, King County, Larimer County</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header class="header">
-        <div class="container">
-            <div class="last-updated" id="lastUpdated">
-                <div class="update-label">Last Updated</div>
-                <div class="update-time" id="updateTime">Loading...</div>
-                <div class="update-timezones" id="updateTimezones"></div>
-                <div class="update-timestamp" id="updateTimestamp"></div>
-            </div>
-            <h1>Voting Analysis Hub</h1>
-            <p class="subtitle">Comprehensive Analysis of Elections and Ballot Measures</p>
+      <div class="container">
+        <div class="last-updated" id="lastUpdated">
+          <div class="update-label">Last Updated</div>
+          <div class="update-time" id="updateTime">Loading...</div>
+          <div class="update-timezones" id="updateTimezones"></div>
+          <div class="update-timestamp" id="updateTimestamp"></div>
         </div>
+        <h1>Voting Analysis Hub</h1>
+        <p class="subtitle">
+          Comprehensive Analysis of Elections and Ballot Measures
+        </p>
+      </div>
     </header>
 
     <nav class="nav">
-        <div class="container">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="prop50.html" class="nav-link">CA Prop 50</a>
-            <a href="king-county.html" class="nav-link">King County</a>
-            <a href="larimer-county.html" class="nav-link">Larimer County</a>
-            <a href="#voter-guide" class="nav-link">Voter Guide</a>
-        </div>
+      <div class="container">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="prop50.html" class="nav-link">CA Prop 50</a>
+        <a href="king-county.html" class="nav-link">King County</a>
+        <a href="larimer-county.html" class="nav-link">Larimer County</a>
+        <a href="#voter-guide" class="nav-link">Voter Guide</a>
+      </div>
     </nav>
 
     <main>
-        <section class="section">
-            <div class="container">
-                <h2>Welcome to the Voting Analysis Hub</h2>
-                <p class="lead">Explore detailed analyses of important elections and ballot measures across multiple jurisdictions.</p>
-                
-                <!-- US Map Visualization -->
-                <div class="map-section">
-                    <h2>Coverage Map</h2>
-                    <div class="us-map-container">
-                        <svg viewBox="0 0 1000 600" class="us-map">
-                            <!-- Simplified US outline -->
-                            <path d="M100,200 L150,180 L200,200 L250,150 L300,160 L350,140 L400,150 L450,130 L500,140 L550,120 L600,130 L650,110 L700,120 L750,100 L800,110 L850,90 L900,100 L900,300 L850,290 L800,300 L750,280 L700,290 L650,270 L600,280 L550,260 L500,270 L450,250 L400,260 L350,240 L300,250 L250,230 L200,240 L150,220 L100,230 Z" fill="#e8f4f8" stroke="#1a5490" stroke-width="2"/>
-                            
-                            <!-- California -->
-                            <path d="M50,280 L80,270 L100,290 L120,280 L130,300 L140,320 L130,350 L100,360 L80,340 L60,320 Z" fill="#4285f4" stroke="#1a5490" stroke-width="2" class="highlight-state" data-state="CA"/>
-                            <text x="90" y="320" font-size="14" font-weight="bold" fill="white">CA</text>
-                            
-                            <!-- Washington -->
-                            <path d="M70,80 L100,75 L120,90 L110,110 L90,115 L75,100 Z" fill="#2a9d8f" stroke="#1a5490" stroke-width="2" class="highlight-state" data-state="WA"/>
-                            <text x="95" y="95" font-size="12" font-weight="bold" fill="white">WA</text>
-                            
-                            <!-- Colorado -->
-                            <path d="M400,200 L430,195 L445,210 L435,230 L415,235 L395,220 Z" fill="#e63946" stroke="#1a5490" stroke-width="2" class="highlight-state" data-state="CO"/>
-                            <text x="420" y="215" font-size="12" font-weight="bold" fill="white">CO</text>
-                            
-                            <!-- Labels -->
-                            <text x="60" y="380" font-size="16" font-weight="600" fill="#1a5490">California Prop 50</text>
-                            <text x="60" y="120" font-size="16" font-weight="600" fill="#1a5490">King County, WA</text>
-                            <text x="400" y="260" font-size="16" font-weight="600" fill="#1a5490">Larimer County, CO</text>
-                        </svg>
-                    </div>
-                </div>
-                
-                <div class="analyses-grid">
-                    <div class="analysis-card">
-                        <div class="card-header">
-                            <h3>California Proposition 50</h3>
-                            <span class="location-badge">California</span>
-                        </div>
-                        <p class="card-description">Analysis of the "Election Rigging Response Act" - a proposed amendment to temporarily redraw California's congressional district maps in response to partisan redistricting efforts in other states.</p>
-                        <div class="card-stats">
-                            <div class="mini-stat">
-                                <span class="mini-stat-number">5</span>
-                                <span class="mini-stat-label">Districts Targeted</span>
-                            </div>
-                            <div class="mini-stat">
-                                <span class="mini-stat-number">2026-2030</span>
-                                <span class="mini-stat-label">Implementation</span>
-                            </div>
-                        </div>
-                        <a href="prop50.html" class="card-link">View Analysis →</a>
-                    </div>
+      <section class="section">
+        <div class="container">
+          <h2>Welcome to the Voting Analysis Hub</h2>
+          <p class="lead">
+            Explore detailed analyses of important elections and ballot measures
+            across multiple jurisdictions.
+          </p>
 
-                    <div class="analysis-card">
-                        <div class="card-header">
-                            <h3>King County Proposition 1</h3>
-                            <span class="location-badge">Washington</span>
-                        </div>
-                        <p class="card-description">Analysis of King County's Proposition 1, which renewed funding for the Automated Fingerprint Identification System (AFIS) - a critical forensic tool used across all cities and unincorporated areas.</p>
-                        <div class="card-stats">
-                            <div class="mini-stat">
-                                <span class="mini-stat-number">Apr 2025</span>
-                                <span class="mini-stat-label">Election Date</span>
-                            </div>
-                            <div class="mini-stat">
-                                <span class="mini-stat-number">Approved</span>
-                                <span class="mini-stat-label">Status</span>
-                            </div>
-                        </div>
-                        <a href="king-county.html" class="card-link">View Analysis →</a>
-                    </div>
+          <!-- US Map Visualization -->
+          <div class="map-section">
+            <h2>Coverage Map</h2>
+            <div class="us-map-container">
+              <svg viewBox="0 0 1000 600" class="us-map">
+                <!-- Simplified US outline -->
+                <path
+                  d="M100,200 L150,180 L200,200 L250,150 L300,160 L350,140 L400,150 L450,130 L500,140 L550,120 L600,130 L650,110 L700,120 L750,100 L800,110 L850,90 L900,100 L900,300 L850,290 L800,300 L750,280 L700,290 L650,270 L600,280 L550,260 L500,270 L450,250 L400,260 L350,240 L300,250 L250,230 L200,240 L150,220 L100,230 Z"
+                  fill="#e8f4f8"
+                  stroke="#1a5490"
+                  stroke-width="2"
+                />
 
-                    <div class="analysis-card">
-                        <div class="card-header">
-                            <h3>Larimer County Elections</h3>
-                            <span class="location-badge">Colorado</span>
-                        </div>
-                        <p class="card-description">Comprehensive analysis of elections and ballot measures in Larimer County, Colorado, including Fort Collins mayoral and county-wide measures.</p>
-                        <div class="card-stats">
-                            <div class="mini-stat">
-                                <span class="mini-stat-number">Fort Collins</span>
-                                <span class="mini-stat-label">City</span>
-                            </div>
-                            <div class="mini-stat">
-                                <span class="mini-stat-number">Ongoing</span>
-                                <span class="mini-stat-label">Status</span>
-                            </div>
-                        </div>
-                        <a href="larimer-county.html" class="card-link">View Analysis →</a>
-                    </div>
-                </div>
+                <!-- California -->
+                <path
+                  d="M50,280 L80,270 L100,290 L120,280 L130,300 L140,320 L130,350 L100,360 L80,340 L60,320 Z"
+                  fill="#4285f4"
+                  stroke="#1a5490"
+                  stroke-width="2"
+                  class="highlight-state"
+                  data-state="CA"
+                />
+                <text
+                  x="90"
+                  y="320"
+                  font-size="14"
+                  font-weight="bold"
+                  fill="white"
+                >
+                  CA
+                </text>
 
-                <div class="info-section">
-                    <h2>About This Hub</h2>
-                    <p>This hub provides detailed, data-driven analyses of important elections and ballot measures. Each analysis includes:</p>
-                    <ul class="feature-list">
-                        <li>✓ Comprehensive overviews and summaries</li>
-                        <li>✓ Detailed breakdowns of measures and candidates</li>
-                        <li>✓ Interactive visualizations and charts</li>
-                        <li>✓ Political perspectives and arguments</li>
-                        <li>✓ Source citations and references</li>
-                        <li>✓ Impact analysis and projections</li>
-                    </ul>
-                </div>
+                <!-- Washington -->
+                <path
+                  d="M70,80 L100,75 L120,90 L110,110 L90,115 L75,100 Z"
+                  fill="#2a9d8f"
+                  stroke="#1a5490"
+                  stroke-width="2"
+                  class="highlight-state"
+                  data-state="WA"
+                />
+                <text
+                  x="95"
+                  y="95"
+                  font-size="12"
+                  font-weight="bold"
+                  fill="white"
+                >
+                  WA
+                </text>
+
+                <!-- Colorado -->
+                <path
+                  d="M400,200 L430,195 L445,210 L435,230 L415,235 L395,220 Z"
+                  fill="#e63946"
+                  stroke="#1a5490"
+                  stroke-width="2"
+                  class="highlight-state"
+                  data-state="CO"
+                />
+                <text
+                  x="420"
+                  y="215"
+                  font-size="12"
+                  font-weight="bold"
+                  fill="white"
+                >
+                  CO
+                </text>
+
+                <!-- Labels -->
+                <text
+                  x="60"
+                  y="380"
+                  font-size="16"
+                  font-weight="600"
+                  fill="#1a5490"
+                >
+                  California Prop 50
+                </text>
+                <text
+                  x="60"
+                  y="120"
+                  font-size="16"
+                  font-weight="600"
+                  fill="#1a5490"
+                >
+                  King County, WA
+                </text>
+                <text
+                  x="400"
+                  y="260"
+                  font-size="16"
+                  font-weight="600"
+                  fill="#1a5490"
+                >
+                  Larimer County, CO
+                </text>
+              </svg>
             </div>
-        </section>
+          </div>
 
-        <!-- Voter Guide Section -->
-        <section id="voter-guide" class="section section-alt">
-            <div class="container">
-                <h2>Create Your Voter Guide</h2>
-                <p class="section-intro">Share your voting recommendations and analysis with others. Create personalized voter guides for your community.</p>
-                
-                <div class="guide-creator">
-                    <div class="guide-form">
-                        <div class="form-group">
-                            <label>Guide Title</label>
-                            <input type="text" id="guideTitle" placeholder="My 2025 Voting Guide" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" id="guideAuthor" placeholder="Your Name" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label>Election/Jurisdiction</label>
-                            <input type="text" id="guideJurisdiction" placeholder="e.g., California, King County, Larimer County" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label>Your Recommendations</label>
-                            <textarea id="guideRecommendations" rows="8" placeholder="Enter your voting recommendations, one per line. Format: Measure Name - Recommendation (YES/NO/Recommendation) - Brief reason" class="form-textarea"></textarea>
-                        </div>
-                        <button onclick="createGuide()" class="btn-primary">Create Guide</button>
-                    </div>
-                    
-                    <div class="guide-preview" id="guidePreview">
-                        <h3>Preview</h3>
-                        <div id="previewContent" class="preview-content">
-                            <p class="preview-placeholder">Your guide preview will appear here...</p>
-                        </div>
-                    </div>
+          <div class="analyses-grid">
+            <div class="analysis-card">
+              <div class="card-header">
+                <h3>California Proposition 50</h3>
+                <span class="location-badge">California</span>
+              </div>
+              <p class="card-description">
+                Analysis of the "Election Rigging Response Act" - a proposed
+                amendment to temporarily redraw California's congressional
+                district maps in response to partisan redistricting efforts in
+                other states.
+              </p>
+              <div class="card-stats">
+                <div class="mini-stat">
+                  <span class="mini-stat-number">5</span>
+                  <span class="mini-stat-label">Districts Targeted</span>
                 </div>
-
-                <div class="shared-guides" id="sharedGuides">
-                    <h3>Shared Voter Guides</h3>
-                    <div id="guidesList" class="guides-list">
-                        <!-- Guides will be loaded here -->
-                    </div>
+                <div class="mini-stat">
+                  <span class="mini-stat-number">2026-2030</span>
+                  <span class="mini-stat-label">Implementation</span>
                 </div>
+              </div>
+              <a href="prop50.html" class="card-link">View Analysis →</a>
             </div>
-        </section>
+
+            <div class="analysis-card">
+              <div class="card-header">
+                <h3>King County Proposition 1</h3>
+                <span class="location-badge">Washington</span>
+              </div>
+              <p class="card-description">
+                Analysis of King County's Proposition 1, which renewed funding
+                for the Automated Fingerprint Identification System (AFIS) - a
+                critical forensic tool used across all cities and unincorporated
+                areas.
+              </p>
+              <div class="card-stats">
+                <div class="mini-stat">
+                  <span class="mini-stat-number">Apr 2025</span>
+                  <span class="mini-stat-label">Election Date</span>
+                </div>
+                <div class="mini-stat">
+                  <span class="mini-stat-number">Approved</span>
+                  <span class="mini-stat-label">Status</span>
+                </div>
+              </div>
+              <a href="king-county.html" class="card-link">View Analysis →</a>
+            </div>
+
+            <div class="analysis-card">
+              <div class="card-header">
+                <h3>Larimer County Elections</h3>
+                <span class="location-badge">Colorado</span>
+              </div>
+              <p class="card-description">
+                Comprehensive analysis of elections and ballot measures in
+                Larimer County, Colorado, including Fort Collins mayoral and
+                county-wide measures.
+              </p>
+              <div class="card-stats">
+                <div class="mini-stat">
+                  <span class="mini-stat-number">Fort Collins</span>
+                  <span class="mini-stat-label">City</span>
+                </div>
+                <div class="mini-stat">
+                  <span class="mini-stat-number">Ongoing</span>
+                  <span class="mini-stat-label">Status</span>
+                </div>
+              </div>
+              <a href="larimer-county.html" class="card-link"
+                >View Analysis →</a
+              >
+            </div>
+          </div>
+
+          <div class="info-section">
+            <h2>About This Hub</h2>
+            <p>
+              This hub provides detailed, data-driven analyses of important
+              elections and ballot measures. Each analysis includes:
+            </p>
+            <ul class="feature-list">
+              <li>✓ Comprehensive overviews and summaries</li>
+              <li>✓ Detailed breakdowns of measures and candidates</li>
+              <li>✓ Interactive visualizations and charts</li>
+              <li>✓ Political perspectives and arguments</li>
+              <li>✓ Source citations and references</li>
+              <li>✓ Impact analysis and projections</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Voter Guide Section -->
+      <section id="voter-guide" class="section section-alt">
+        <div class="container">
+          <h2>Create Your Voter Guide</h2>
+          <p class="section-intro">
+            Share your voting recommendations and analysis with others. Create
+            personalized voter guides for your community.
+          </p>
+
+          <div class="guide-creator">
+            <div class="guide-form">
+              <div class="form-group">
+                <label>Guide Title</label>
+                <input
+                  type="text"
+                  id="guideTitle"
+                  placeholder="My 2025 Voting Guide"
+                  class="form-input"
+                />
+              </div>
+              <div class="form-group">
+                <label>Your Name</label>
+                <input
+                  type="text"
+                  id="guideAuthor"
+                  placeholder="Your Name"
+                  class="form-input"
+                />
+              </div>
+              <div class="form-group">
+                <label>Election/Jurisdiction</label>
+                <input
+                  type="text"
+                  id="guideJurisdiction"
+                  placeholder="e.g., California, King County, Larimer County"
+                  class="form-input"
+                />
+              </div>
+              <div class="form-group">
+                <label>Your Recommendations</label>
+                <textarea
+                  id="guideRecommendations"
+                  rows="8"
+                  placeholder="Enter your voting recommendations, one per line. Format: Measure Name - Recommendation (YES/NO/Recommendation) - Brief reason"
+                  class="form-textarea"
+                ></textarea>
+              </div>
+              <button onclick="createGuide()" class="btn-primary">
+                Create Guide
+              </button>
+            </div>
+
+            <div class="guide-preview" id="guidePreview">
+              <h3>Preview</h3>
+              <div id="previewContent" class="preview-content">
+                <p class="preview-placeholder">
+                  Your guide preview will appear here...
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="shared-guides" id="sharedGuides">
+            <h3>Shared Voter Guides</h3>
+            <div id="guidesList" class="guides-list">
+              <!-- Guides will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>This analysis hub is for informational purposes only. Data compiled from publicly available sources.</p>
-            <p class="footer-note">Last updated: November 2025</p>
-        </div>
+      <div class="container">
+        <p>
+          This analysis hub is for informational purposes only. Data compiled
+          from publicly available sources.
+        </p>
+        <p class="footer-note">Last updated: November 2025</p>
+      </div>
     </footer>
     <script>
-        // Auto-refresh and timestamp functionality
-        let lastTimestamp = null;
-        const REFRESH_INTERVAL = 60000;
-        
-        function checkForUpdates() {
-            fetch('timestamp.json?' + new Date().getTime())
-                .then(response => response.json())
-                .then(data => {
-                    if (lastTimestamp && data.timestamp !== lastTimestamp) {
-                        location.reload();
-                    }
-                    lastTimestamp = data.timestamp;
-                })
-                .catch(err => {});
-        }
-        
-        fetch('timestamp.json')
-            .then(response => response.json())
-            .then(data => {
-                const updateTimeEl = document.getElementById('updateTime');
-                const updateTimezonesEl = document.getElementById('updateTimezones');
-                const updateTimestampEl = document.getElementById('updateTimestamp');
-                
-                if (updateTimeEl && data.lastUpdated) updateTimeEl.textContent = data.lastUpdated;
-                if (updateTimezonesEl) {
-                    let html = '';
-                    if (data.lastUpdatedPST) html += `<span class="timezone-item">${data.lastUpdatedPST}</span>`;
-                    if (data.lastUpdatedMST) html += `<span class="timezone-item">${data.lastUpdatedMST}</span>`;
-                    updateTimezonesEl.innerHTML = html;
-                }
-                if (updateTimestampEl && data.timestamp) {
-                    updateTimestampEl.textContent = `Unix: ${data.timestamp}`;
-                    lastTimestamp = data.timestamp;
-                }
-                setInterval(checkForUpdates, REFRESH_INTERVAL);
-            })
-            .catch(err => {});
+      // Auto-refresh and timestamp functionality
+      let lastTimestamp = null;
+      const REFRESH_INTERVAL = 60000;
 
-        // Voter Guide functionality
-        function createGuide() {
-            const title = document.getElementById('guideTitle').value;
-            const author = document.getElementById('guideAuthor').value;
-            const jurisdiction = document.getElementById('guideJurisdiction').value;
-            const recommendations = document.getElementById('guideRecommendations').value;
-
-            if (!title || !author || !recommendations) {
-                alert('Please fill in all required fields');
-                return;
+      function checkForUpdates() {
+        fetch("timestamp.json?" + new Date().getTime())
+          .then((response) => response.json())
+          .then((data) => {
+            if (lastTimestamp && data.timestamp !== lastTimestamp) {
+              location.reload();
             }
+            lastTimestamp = data.timestamp;
+          })
+          .catch((err) => {});
+      }
 
-            const guide = {
-                title,
-                author,
-                jurisdiction,
-                recommendations,
-                created: new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'}),
-                id: Date.now()
-            };
+      fetch("timestamp.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const updateTimeEl = document.getElementById("updateTime");
+          const updateTimezonesEl = document.getElementById("updateTimezones");
+          const updateTimestampEl = document.getElementById("updateTimestamp");
 
-            // Update preview
-            const preview = document.getElementById('previewContent');
-            preview.innerHTML = `
+          if (updateTimeEl && data.lastUpdated)
+            updateTimeEl.textContent = data.lastUpdated;
+          if (updateTimezonesEl) {
+            let html = "";
+            if (data.lastUpdatedPST)
+              html += `<span class="timezone-item">${data.lastUpdatedPST}</span>`;
+            if (data.lastUpdatedMST)
+              html += `<span class="timezone-item">${data.lastUpdatedMST}</span>`;
+            updateTimezonesEl.innerHTML = html;
+          }
+          if (updateTimestampEl && data.timestamp) {
+            updateTimestampEl.textContent = `Unix: ${data.timestamp}`;
+            lastTimestamp = data.timestamp;
+          }
+          setInterval(checkForUpdates, REFRESH_INTERVAL);
+        })
+        .catch((err) => {});
+
+      // Voter Guide functionality
+      function createGuide() {
+        const title = document.getElementById("guideTitle").value;
+        const author = document.getElementById("guideAuthor").value;
+        const jurisdiction = document.getElementById("guideJurisdiction").value;
+        const recommendations = document.getElementById(
+          "guideRecommendations"
+        ).value;
+
+        if (!title || !author || !recommendations) {
+          alert("Please fill in all required fields");
+          return;
+        }
+
+        const guide = {
+          title,
+          author,
+          jurisdiction,
+          recommendations,
+          created: new Date().toLocaleString("en-US", {
+            timeZone: "America/Los_Angeles",
+          }),
+          id: Date.now(),
+        };
+
+        // Update preview
+        const preview = document.getElementById("previewContent");
+        preview.innerHTML = `
                 <h4>${guide.title}</h4>
-                <p class="guide-meta">By ${guide.author} | ${guide.jurisdiction || 'General'} | ${guide.created}</p>
-                <div class="guide-content">${guide.recommendations.replace(/\n/g, '<br>')}</div>
+                <p class="guide-meta">By ${guide.author} | ${
+          guide.jurisdiction || "General"
+        } | ${guide.created}</p>
+                <div class="guide-content">${guide.recommendations.replace(
+                  /\n/g,
+                  "<br>"
+                )}</div>
             `;
 
-            // Save to localStorage
-            let guides = JSON.parse(localStorage.getItem('voterGuides') || '[]');
-            guides.unshift(guide);
-            guides = guides.slice(0, 20); // Keep last 20
-            localStorage.setItem('voterGuides', JSON.stringify(guides));
+        // Save to localStorage
+        let guides = JSON.parse(localStorage.getItem("voterGuides") || "[]");
+        guides.unshift(guide);
+        guides = guides.slice(0, 20); // Keep last 20
+        localStorage.setItem("voterGuides", JSON.stringify(guides));
 
-            // Reload guides list
-            loadGuides();
+        // Reload guides list
+        loadGuides();
 
-            // Clear form
-            document.getElementById('guideTitle').value = '';
-            document.getElementById('guideAuthor').value = '';
-            document.getElementById('guideJurisdiction').value = '';
-            document.getElementById('guideRecommendations').value = '';
+        // Clear form
+        document.getElementById("guideTitle").value = "";
+        document.getElementById("guideAuthor").value = "";
+        document.getElementById("guideJurisdiction").value = "";
+        document.getElementById("guideRecommendations").value = "";
+      }
+
+      function loadGuides() {
+        const guides = JSON.parse(localStorage.getItem("voterGuides") || "[]");
+        const list = document.getElementById("guidesList");
+
+        if (guides.length === 0) {
+          list.innerHTML =
+            '<p class="preview-placeholder">No guides shared yet. Create one above!</p>';
+          return;
         }
 
-        function loadGuides() {
-            const guides = JSON.parse(localStorage.getItem('voterGuides') || '[]');
-            const list = document.getElementById('guidesList');
-            
-            if (guides.length === 0) {
-                list.innerHTML = '<p class="preview-placeholder">No guides shared yet. Create one above!</p>';
-                return;
-            }
-
-            list.innerHTML = guides.map(guide => `
+        list.innerHTML = guides
+          .map(
+            (guide) => `
                 <div class="guide-card">
                     <h4>${guide.title}</h4>
-                    <p class="guide-meta">By ${guide.author} | ${guide.jurisdiction || 'General'} | ${guide.created}</p>
-                    <div class="guide-content">${guide.recommendations.replace(/\n/g, '<br>')}</div>
+                    <p class="guide-meta">By ${guide.author} | ${
+              guide.jurisdiction || "General"
+            } | ${guide.created}</p>
+                    <div class="guide-content">${guide.recommendations.replace(
+                      /\n/g,
+                      "<br>"
+                    )}</div>
                 </div>
-            `).join('');
-        }
+            `
+          )
+          .join("");
+      }
 
-        // Load guides on page load
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadGuides);
-        } else {
-            loadGuides();
-        }
+      // Load guides on page load
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadGuides);
+      } else {
+        loadGuides();
+      }
     </script>
-</body>
+  </body>
 </html>
