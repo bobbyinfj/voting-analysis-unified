@@ -52,117 +52,143 @@
             <h2>Coverage Map</h2>
             <div class="us-map-container">
               <svg viewBox="0 0 1000 600" class="us-map">
-                <!-- Simplified US outline -->
+                <!-- USA Continental Outline -->
                 <path
-                  d="M100,200 L150,180 L200,200 L250,150 L300,160 L350,140 L400,150 L450,130 L500,140 L550,120 L600,130 L650,110 L700,120 L750,100 L800,110 L850,90 L900,100 L900,300 L850,290 L800,300 L750,280 L700,290 L650,270 L600,280 L550,260 L500,270 L450,250 L400,260 L350,240 L300,250 L250,230 L200,240 L150,220 L100,230 Z"
+                  d="M 100 100 
+                     L 150 95 L 250 90 L 350 88 L 450 85 L 550 82 L 650 80 L 750 82 L 850 88 L 900 95 L 930 110 L 940 140 L 945 180 L 940 220 L 930 260 L 915 300 L 895 340 L 870 375 L 840 405 L 805 430 L 765 450 L 720 465 L 670 475 L 615 480 L 560 482 L 505 480 L 450 475 L 400 465 L 355 450 L 315 430 L 280 405 L 250 375 L 225 340 L 205 300 L 190 260 L 180 220 L 175 180 L 180 140 L 190 110 L 210 100 
+                     Z
+                     M 100 100
+                     L 80 120 L 65 160 L 55 210 L 50 260 L 48 310 L 50 360 L 55 410 L 65 455 L 80 495 L 100 530 L 125 560 L 155 585 L 190 600 L 230 605 L 270 608 L 310 605 L 350 600 L 385 585 L 415 560 L 440 530 L 460 495 L 475 455 L 485 410 L 490 360 L 492 310 L 490 260 L 485 210 L 475 160 L 460 120 L 440 100
+                     Z"
                   fill="#e8f4f8"
                   stroke="#1a5490"
-                  stroke-width="2"
+                  stroke-width="2.5"
+                />
+                <!-- Florida Peninsula -->
+                <path
+                  d="M 805 430 L 810 455 L 815 480 L 817 505 L 815 530 L 808 555 L 795 575 L 775 590 L 750 598 L 720 600 L 690 598 L 665 590 L 645 575 L 630 555 L 620 530 L 615 505 L 617 480 L 625 455 L 635 435 Z"
+                  fill="#e8f4f8"
+                  stroke="#1a5490"
+                  stroke-width="2.5"
+                />
+                <!-- Pacific Coast (California) indentation -->
+                <path
+                  d="M 100 180 L 95 220 L 90 260 L 92 300 L 98 340 L 110 375 L 130 405 L 155 430 L 185 450 L 220 465 L 260 475 L 300 480 L 340 478 L 375 470 L 405 455 L 430 435 L 450 410 L 465 380 L 470 340 L 465 300 L 455 260 L 440 220 L 420 180 L 395 150 L 365 130 L 330 120 L 290 115 L 250 118 L 210 125 L 175 140 L 145 160 L 120 180 Z"
+                  fill="#e8f4f8"
+                  stroke="#1a5490"
+                  stroke-width="2.5"
+                />
+                <!-- Gulf Coast detail -->
+                <path
+                  d="M 615 480 L 640 485 L 665 488 L 690 485 L 715 478 L 735 465 L 750 448 L 758 425 L 760 400 L 755 375 L 745 355 L 730 340 L 710 332 L 688 335 L 670 345 L 658 360 L 652 380 L 655 400 L 663 418 L 675 430 L 690 438 L 705 442 L 715 435 L 718 420 L 715 405 L 705 395 L 690 392 L 678 400 L 672 412 L 674 425 Z"
+                  fill="#e8f4f8"
+                  stroke="#1a5490"
+                  stroke-width="2.5"
                 />
 
-                 <!-- California -->
-                 <path
-                   d="M50,280 L80,270 L100,290 L120,280 L130,300 L140,320 L130,350 L100,360 L80,340 L60,320 Z"
-                   fill="#4285f4"
-                   stroke="#1a5490"
-                   stroke-width="2"
-                   class="highlight-state clickable-state"
-                   data-state="CA"
-                   data-link="prop50.html"
-                   style="cursor: pointer;"
-                 />
-                 <text
-                   x="90"
-                   y="320"
-                   font-size="14"
-                   font-weight="bold"
-                   fill="white"
-                   pointer-events="none"
-                 >
-                   CA
-                 </text>
+                <!-- California (highlighted) -->
+                <path
+                  d="M 100 180 L 95 220 L 90 260 L 92 300 L 98 340 L 110 375 L 130 405 L 155 430 L 185 450 L 220 465 L 260 475 L 300 480 L 340 478 L 375 470 L 405 455 L 430 435 L 450 410 L 465 380 L 470 340 L 465 300 L 455 260 L 440 220 L 420 180 L 395 150 L 365 130 L 330 120 L 290 115 L 250 118 L 210 125 L 175 140 L 145 160 L 120 180 Z"
+                  fill="#4285f4"
+                  stroke="#1a5490"
+                  stroke-width="2"
+                  class="highlight-state clickable-state"
+                  data-state="CA"
+                  data-link="prop50.html"
+                  style="cursor: pointer"
+                />
+                <text
+                  x="280"
+                  y="300"
+                  font-size="18"
+                  font-weight="bold"
+                  fill="white"
+                  pointer-events="none"
+                >
+                  CA
+                </text>
 
-                 <!-- Washington -->
-                 <path
-                   d="M70,80 L100,75 L120,90 L110,110 L90,115 L75,100 Z"
-                   fill="#2a9d8f"
-                   stroke="#1a5490"
-                   stroke-width="2"
-                   class="highlight-state clickable-state"
-                   data-state="WA"
-                   data-link="king-county.html"
-                   style="cursor: pointer;"
-                 />
-                 <text
-                   x="95"
-                   y="95"
-                   font-size="12"
-                   font-weight="bold"
-                   fill="white"
-                   pointer-events="none"
-                 >
-                   WA
-                 </text>
+                <!-- Washington (highlighted) -->
+                <path
+                  d="M 100 100 L 95 80 L 105 65 L 125 55 L 150 50 L 175 48 L 200 50 L 220 55 L 235 65 L 245 80 L 248 100 L 245 120 L 235 135 L 220 145 L 200 150 L 175 152 L 150 150 L 125 145 L 105 135 L 100 120 Z"
+                  fill="#2a9d8f"
+                  stroke="#1a5490"
+                  stroke-width="2"
+                  class="highlight-state clickable-state"
+                  data-state="WA"
+                  data-link="king-county.html"
+                  style="cursor: pointer"
+                />
+                <text
+                  x="175"
+                  y="100"
+                  font-size="14"
+                  font-weight="bold"
+                  fill="white"
+                  pointer-events="none"
+                >
+                  WA
+                </text>
 
-                 <!-- Colorado -->
-                 <path
-                   d="M400,200 L430,195 L445,210 L435,230 L415,235 L395,220 Z"
-                   fill="#e63946"
-                   stroke="#1a5490"
-                   stroke-width="2"
-                   class="highlight-state clickable-state"
-                   data-state="CO"
-                   data-link="larimer-county.html"
-                   style="cursor: pointer;"
-                 />
-                 <text
-                   x="420"
-                   y="215"
-                   font-size="12"
-                   font-weight="bold"
-                   fill="white"
-                   pointer-events="none"
-                 >
-                   CO
-                 </text>
+                <!-- Colorado (highlighted) -->
+                <path
+                  d="M 480 240 L 510 235 L 535 240 L 550 255 L 555 275 L 550 295 L 535 310 L 510 315 L 485 310 L 470 295 L 465 275 L 470 255 Z"
+                  fill="#e63946"
+                  stroke="#1a5490"
+                  stroke-width="2"
+                  class="highlight-state clickable-state"
+                  data-state="CO"
+                  data-link="larimer-county.html"
+                  style="cursor: pointer"
+                />
+                <text
+                  x="510"
+                  y="275"
+                  font-size="14"
+                  font-weight="bold"
+                  fill="white"
+                  pointer-events="none"
+                >
+                  CO
+                </text>
 
-                 <!-- Labels (also clickable) -->
-                 <text
-                   x="60"
-                   y="380"
-                   font-size="16"
-                   font-weight="600"
-                   fill="#1a5490"
-                   class="clickable-label"
-                   data-link="prop50.html"
-                   style="cursor: pointer; text-decoration: underline;"
-                 >
-                   California Prop 50
-                 </text>
-                 <text
-                   x="60"
-                   y="120"
-                   font-size="16"
-                   font-weight="600"
-                   fill="#1a5490"
-                   class="clickable-label"
-                   data-link="king-county.html"
-                   style="cursor: pointer; text-decoration: underline;"
-                 >
-                   King County, WA
-                 </text>
-                 <text
-                   x="400"
-                   y="260"
-                   font-size="16"
-                   font-weight="600"
-                   fill="#1a5490"
-                   class="clickable-label"
-                   data-link="larimer-county.html"
-                   style="cursor: pointer; text-decoration: underline;"
-                 >
-                   Larimer County, CO
-                 </text>
+                <!-- Labels (also clickable) -->
+                <text
+                  x="110"
+                  y="500"
+                  font-size="16"
+                  font-weight="600"
+                  fill="#1a5490"
+                  class="clickable-label"
+                  data-link="prop50.html"
+                  style="cursor: pointer; text-decoration: underline"
+                >
+                  California Prop 50
+                </text>
+                <text
+                  x="100"
+                  y="200"
+                  font-size="16"
+                  font-weight="600"
+                  fill="#1a5490"
+                  class="clickable-label"
+                  data-link="king-county.html"
+                  style="cursor: pointer; text-decoration: underline"
+                >
+                  King County, WA
+                </text>
+                <text
+                  x="480"
+                  y="350"
+                  font-size="16"
+                  font-weight="600"
+                  fill="#1a5490"
+                  class="clickable-label"
+                  data-link="larimer-county.html"
+                  style="cursor: pointer; text-decoration: underline"
+                >
+                  Larimer County, CO
+                </text>
               </svg>
             </div>
           </div>
@@ -263,11 +289,141 @@
       <!-- Voter Guide Section -->
       <section id="voter-guide" class="section section-alt">
         <div class="container">
-          <h2>Create Your Voter Guide</h2>
+          <h2>Voter Guide: Ballot Measures by County</h2>
           <p class="section-intro">
-            Share your voting recommendations and analysis with others. Create
-            personalized voter guides for your community.
+            Comprehensive information about ballot measures and elections in each covered jurisdiction. 
+            Use this information to make informed voting decisions.
           </p>
+
+          <!-- California Ballot Measures -->
+          <div class="guide-card" style="margin-bottom: 2rem;">
+            <div class="card-header">
+              <h3>California: November 4, 2025 Special Election</h3>
+              <span class="location-badge">California</span>
+            </div>
+            <div class="card">
+              <h4>Proposition 50: Election Rigging Response Act</h4>
+              <div class="info-grid">
+                <div class="info-card">
+                  <h5>What It Does</h5>
+                  <p>Authorizes temporary redrawing of California's congressional district maps in response to partisan redistricting efforts in other states.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Timeline</h5>
+                  <p>New maps would be used for the <strong>2026, 2028, and 2030</strong> elections. After 2030 Census, the independent California Citizens Redistricting Commission resumes control.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Impact</h5>
+                  <p>Would make 5 Republican districts more competitive. Counties would face one-time costs up to a few million dollars statewide.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Key Arguments</h5>
+                  <ul style="margin: 0; padding-left: 1.2rem;">
+                    <li><strong>For:</strong> Counteracts partisan gerrymandering, maintains democratic balance, strengthens Latino representation</li>
+                    <li><strong>Against:</strong> Abandons nonpartisan redistricting process, rushed process, creates partisan power grab</li>
+                  </ul>
+                </div>
+              </div>
+              <p style="margin-top: 1rem;"><strong>Election Date:</strong> November 4, 2025 (Special Election)</p>
+              <p style="margin-top: 0.5rem;"><a href="prop50.html" class="card-link">View Detailed Analysis →</a></p>
+            </div>
+          </div>
+
+          <!-- King County Ballot Measures -->
+          <div class="guide-card" style="margin-bottom: 2rem;">
+            <div class="card-header">
+              <h3>King County, Washington: April 22, 2025</h3>
+              <span class="location-badge">Washington</span>
+            </div>
+            <div class="card">
+              <h4>Proposition 1: Automated Fingerprint Identification System (AFIS) Funding</h4>
+              <div class="info-grid">
+                <div class="info-card">
+                  <h5>What It Does</h5>
+                  <p>Authorizes a seven-year property tax levy beginning in 2026 to fund the Regional Automated Fingerprint Identification System (AFIS), a forensic tool used across all cities and unincorporated areas.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Tax Rate</h5>
+                  <p><strong>2.75 cents per $1,000</strong> of assessed property value. For a median-priced home, this equates to approximately <strong>$15-20 per year</strong>.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Duration</h5>
+                  <p>Seven-year property tax levy running from <strong>2026 through 2032</strong>.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Election Result</h5>
+                  <p><strong>✅ APPROVED</strong> with <strong>59.72%</strong> of voters in favor (151,495 votes in favor, 102,189 against).</p>
+                  <p style="margin-top: 0.5rem; font-size: 0.9em;"><em>This measure has already passed.</em></p>
+                </div>
+              </div>
+              <div class="info-grid" style="margin-top: 1rem;">
+                <div class="info-card">
+                  <h5>Coverage</h5>
+                  <p>AFIS serves all <strong>39 incorporated cities</strong> in King County and all unincorporated areas, covering approximately <strong>2.3 million residents</strong>.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Key Arguments</h5>
+                  <ul style="margin: 0; padding-left: 1.2rem;">
+                    <li><strong>For:</strong> Critical crime-solving tool, small cost per household, serves all jurisdictions</li>
+                    <li><strong>Against:</strong> Property tax increase adds up, privacy concerns about fingerprint databases</li>
+                  </ul>
+                </div>
+              </div>
+              <p style="margin-top: 1rem;"><strong>Election Date:</strong> April 22, 2025 (Already Passed)</p>
+              <p style="margin-top: 0.5rem;"><a href="king-county.html" class="card-link">View Detailed Analysis →</a></p>
+            </div>
+          </div>
+
+          <!-- Larimer County Ballot Measures -->
+          <div class="guide-card" style="margin-bottom: 2rem;">
+            <div class="card-header">
+              <h3>Larimer County, Colorado: November 4, 2025</h3>
+              <span class="location-badge">Colorado</span>
+            </div>
+            <div class="card">
+              <h4>Transportation Funding Measure (Proposed)</h4>
+              <div class="info-grid">
+                <div class="info-card">
+                  <h5>What It Does</h5>
+                  <p>Would authorize a sales and use tax to fund transportation infrastructure improvements, including road safety, congestion relief, and emergency readiness.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Tax Rate</h5>
+                  <p><strong>0.15%</strong> sales and use tax. Tax exempts groceries, gasoline, diapers, and prescription drugs.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Revenue</h5>
+                  <p>Would generate approximately <strong>$15 million annually</strong> for transportation projects.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Duration</h5>
+                  <p>15-year sunset provision, allowing for future reassessment.</p>
+                </div>
+              </div>
+              <div class="info-grid" style="margin-top: 1rem;">
+                <div class="info-card">
+                  <h5>Coverage Area</h5>
+                  <p>Larimer County (population ~359,000), including Fort Collins, Loveland, Estes Park, and other municipalities.</p>
+                </div>
+                <div class="info-card">
+                  <h5>Key Arguments</h5>
+                  <ul style="margin: 0; padding-left: 1.2rem;">
+                    <li><strong>For:</strong> Addresses rapid growth, improves safety, supports economic development</li>
+                    <li><strong>Against:</strong> Sales tax increase, questions about spending priorities, economic concerns</li>
+                  </ul>
+                </div>
+              </div>
+              <p style="margin-top: 1rem;"><strong>Status:</strong> Under consideration for November 2025 ballot (final ballot language pending)</p>
+              <p style="margin-top: 0.5rem;"><a href="larimer-county.html" class="card-link">View Detailed Analysis →</a></p>
+            </div>
+          </div>
+
+          <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e0e0e0;">
+            <h3>Create Your Own Voter Guide</h3>
+            <p class="section-intro">
+              Share your voting recommendations and analysis with others. Create
+              personalized voter guides for your community.
+            </p>
 
           <div class="guide-creator">
             <div class="guide-form">
@@ -465,35 +621,35 @@
           .join("");
       }
 
-       // Load guides on page load
-       if (document.readyState === "loading") {
-         document.addEventListener("DOMContentLoaded", loadGuides);
-       } else {
-         loadGuides();
-       }
+      // Load guides on page load
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadGuides);
+      } else {
+        loadGuides();
+      }
 
-       // Interactive map functionality
-       document.addEventListener("DOMContentLoaded", function() {
-         // Make state paths clickable
-         document.querySelectorAll(".clickable-state").forEach(function(state) {
-           state.addEventListener("click", function() {
-             const link = this.getAttribute("data-link");
-             if (link) {
-               window.location.href = link;
-             }
-           });
-         });
+      // Interactive map functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Make state paths clickable
+        document.querySelectorAll(".clickable-state").forEach(function (state) {
+          state.addEventListener("click", function () {
+            const link = this.getAttribute("data-link");
+            if (link) {
+              window.location.href = link;
+            }
+          });
+        });
 
-         // Make labels clickable
-         document.querySelectorAll(".clickable-label").forEach(function(label) {
-           label.addEventListener("click", function() {
-             const link = this.getAttribute("data-link");
-             if (link) {
-               window.location.href = link;
-             }
-           });
-         });
-       });
-     </script>
+        // Make labels clickable
+        document.querySelectorAll(".clickable-label").forEach(function (label) {
+          label.addEventListener("click", function () {
+            const link = this.getAttribute("data-link");
+            if (link) {
+              window.location.href = link;
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
