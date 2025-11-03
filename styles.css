@@ -55,6 +55,22 @@ body {
     margin-top: 0.25rem;
 }
 
+.last-updated .update-timezones {
+    font-size: 0.65rem;
+    opacity: 0.85;
+    margin-top: 0.25rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.last-updated .timezone-item {
+    padding: 0.15rem 0.4rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    font-weight: 400;
+}
+
 .last-updated .update-timestamp {
     font-size: 0.65rem;
     opacity: 0.7;
@@ -500,6 +516,201 @@ body {
     font-size: 0.9rem;
     margin-top: 1rem;
     font-style: italic;
+}
+
+/* Voter Guide Styles */
+.guide-creator {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.guide-form {
+    background: var(--bg-alt);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.guide-preview {
+    background: var(--bg-alt);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary-color);
+}
+
+.preview-content {
+    min-height: 200px;
+}
+
+.preview-placeholder {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.guide-card {
+    background: var(--bg-alt);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.guide-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.guide-card .guide-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.guide-card .guide-content {
+    white-space: pre-line;
+    line-height: 1.6;
+}
+
+.guides-list {
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .guide-creator {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* US Map */
+.map-section {
+    margin: 3rem 0;
+}
+
+.us-map-container {
+    background: var(--bg-alt);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+}
+
+.us-map {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.highlight-state {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.highlight-state:hover {
+    opacity: 0.8;
+    filter: brightness(1.1);
+}
+
+/* Source Citations */
+.source-ref {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+.source-ref:hover::after {
+    content: attr(data-source);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-primary);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    z-index: 1000;
+    margin-bottom: 0.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.source-ref:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--text-primary);
+    z-index: 1001;
+}
+
+.footnote-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.85em;
+    vertical-align: super;
+    margin-left: 2px;
+}
+
+.footnote-link:hover {
+    text-decoration: underline;
 }
 
 /* Index Page Styles */

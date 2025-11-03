@@ -1,0 +1,42 @@
+# Voting Analysis Unified - Specstory
+
+## Project Overview
+A comprehensive web application hub analyzing elections and ballot measures across multiple jurisdictions:
+- California Proposition 50 (Congressional Redistricting)
+- King County, Washington Proposition 1 (AFIS Funding)
+- Larimer County, Colorado (Transportation & Elections)
+
+## Repository Structure
+- `index.html` - Main hub page
+- `prop50.html` - California Proposition 50 analysis
+- `king-county.html` - King County analysis
+- `larimer-county.html` - Larimer County analysis
+- `styles.css` - Unified styling
+- `app.js` - Application logic
+- `data.js` - District and election data
+- `deploy.sh` - Quick deployment script
+- `timestamp.json` - Auto-generated timestamp file
+
+## Features
+- Interactive visualizations with Chart.js
+- Comprehensive source citations
+- Responsive design
+- Auto-updating timestamps
+- Multi-timezone support (PST/MST)
+- Auto-refresh functionality
+
+## Deployment
+- Hosted on GitHub Pages: https://bobbyinfj.github.io/voting-analysis-unified/
+- Auto-deploys on push to main branch
+- Uses `./deploy.sh` script for quick updates
+
+## Data Sources
+All data compiled from publicly available sources including:
+- Official government websites
+- News organizations
+- Academic research
+- Interactive mapping tools
+
+## Last Updated
+2025-11-02
+

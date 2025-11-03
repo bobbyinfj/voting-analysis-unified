@@ -16,6 +16,7 @@
             <div class="last-updated" id="lastUpdated">
                 <div class="update-label">Last Updated</div>
                 <div class="update-time" id="updateTime">Loading...</div>
+                <div class="update-timezones" id="updateTimezones"></div>
                 <div class="update-timestamp" id="updateTimestamp"></div>
             </div>
             <h1>Proposition 50 Voting Analysis</h1>
@@ -424,18 +425,51 @@
     <script src="data.js"></script>
     <script src="app.js"></script>
     <script>
+        // Auto-refresh functionality
+        let lastTimestamp = null;
+        const REFRESH_INTERVAL = 60000; // Check every 60 seconds
+        
+        function checkForUpdates() {
+            fetch('timestamp.json?' + new Date().getTime())
+                .then(response => response.json())
+                .then(data => {
+                    if (lastTimestamp && data.timestamp !== lastTimestamp) {
+                        console.log('Update detected, refreshing page...');
+                        location.reload();
+                    }
+                    lastTimestamp = data.timestamp;
+                })
+                .catch(err => console.log('Could not check for updates'));
+        }
+        
         // Load and display last updated timestamp
         fetch('timestamp.json')
             .then(response => response.json())
             .then(data => {
                 const updateTimeEl = document.getElementById('updateTime');
+                const updateTimezonesEl = document.getElementById('updateTimezones');
                 const updateTimestampEl = document.getElementById('updateTimestamp');
+                
                 if (updateTimeEl && data.lastUpdated) {
                     updateTimeEl.textContent = data.lastUpdated;
                 }
+                if (updateTimezonesEl) {
+                    let timezonesHTML = '';
+                    if (data.lastUpdatedPST) {
+                        timezonesHTML += `<span class="timezone-item">${data.lastUpdatedPST}</span>`;
+                    }
+                    if (data.lastUpdatedMST) {
+                        timezonesHTML += `<span class="timezone-item">${data.lastUpdatedMST}</span>`;
+                    }
+                    updateTimezonesEl.innerHTML = timezonesHTML;
+                }
                 if (updateTimestampEl && data.timestamp) {
                     updateTimestampEl.textContent = `Unix: ${data.timestamp}`;
+                    lastTimestamp = data.timestamp;
                 }
+                
+                // Start auto-refresh checking
+                setInterval(checkForUpdates, REFRESH_INTERVAL);
             })
             .catch(err => {
                 console.log('Could not load timestamp');
