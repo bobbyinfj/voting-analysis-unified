@@ -1,600 +1,960 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proposition 50 Voting Analysis - California Redistricting</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
-        <div class="container">
-            <div class="last-updated" id="lastUpdated">
-                <div class="update-label">Last Updated</div>
-                <div class="update-time" id="updateTime">Loading...</div>
-                <div class="update-timezones" id="updateTimezones"></div>
-                <div class="update-timestamp" id="updateTimestamp"></div>
-            </div>
-            <h1>Proposition 50 Voting Analysis</h1>
-            <p class="subtitle">California Congressional Redistricting Impact Analysis</p>
+      <div class="container">
+        <div class="last-updated" id="lastUpdated">
+          <div class="update-label">Last Updated</div>
+          <div class="update-time" id="updateTime">Loading...</div>
+          <div class="update-timezones" id="updateTimezones"></div>
+          <div class="update-timestamp" id="updateTimestamp"></div>
         </div>
+        <h1>Proposition 50 Voting Analysis</h1>
+        <p class="subtitle">
+          California Congressional Redistricting Impact Analysis
+        </p>
+      </div>
     </header>
 
-            <nav class="nav">
-        <div class="container">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="#overview" class="nav-link">Overview</a>
-            <a href="#districts" class="nav-link">District Changes</a>
-            <a href="#impact" class="nav-link">Impact Analysis</a>
-            <a href="#visualizations" class="nav-link">Visualizations</a>
-            <a href="#sources" class="nav-link">Sources</a>
-        </div>
+    <nav class="nav">
+      <div class="container">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#districts" class="nav-link">District Changes</a>
+        <a href="#impact" class="nav-link">Impact Analysis</a>
+        <a href="#visualizations" class="nav-link">Visualizations</a>
+        <a href="#sources" class="nav-link">Sources</a>
+      </div>
     </nav>
 
     <main>
-        <!-- Overview Section -->
-        <section id="overview" class="section">
-            <div class="container">
-                <h2>What is Proposition 50?</h2>
-                <div class="card">
-                    <p class="lead">Proposition 50, officially titled the <strong>"Election Rigging Response Act"</strong>, is a proposed amendment to the California Constitution that will appear on the special election ballot on <strong>November 4, 2025</strong>.</p>
-                    
-                    <div class="info-grid">
-                        <div class="info-card">
-                            <h3>Purpose</h3>
-                            <p>Authorize temporary redrawing of California's congressional district maps in response to partisan redistricting efforts in states like Texas.</p>
-                        </div>
-                        <div class="info-card">
-                            <h3>Timeline</h3>
-                            <p>New maps would be used for the <strong>2026, 2028, and 2030</strong> elections. After the 2030 Census, the independent California Citizens Redistricting Commission would resume its role.</p>
-                        </div>
-                        <div class="info-card">
-                            <h3>Fiscal Impact</h3>
-                            <p>One-time costs to counties: <strong>up to a few million dollars</strong> statewide. State government costs: <strong>approximately $200,000</strong>.</p>
-                        </div>
-                        <div class="info-card">
-                            <h3>Key Date</h3>
-                            <p>Special Election: <strong>November 4, 2025</strong></p>
-                        </div>
-                    </div>
-                </div>
+      <!-- Overview Section -->
+      <section id="overview" class="section">
+        <div class="container">
+          <h2>What is Proposition 50?</h2>
+          <div class="card">
+            <p class="lead">
+              Proposition 50, officially titled the
+              <strong>"Election Rigging Response Act"</strong>, is a proposed
+              amendment to the California Constitution that will appear on the
+              special election ballot on <strong>November 4, 2025</strong>.
+            </p>
 
-                <!-- Key Statistics Dashboard -->
-                <div class="dashboard">
-                    <h2>Key Statistics</h2>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label">Republican Districts Targeted</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">12</div>
-                            <div class="stat-label">Districts Analyzed</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">Districts Become More Republican</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">2026-2030</div>
-                            <div class="stat-label">Implementation Period</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- How Redistricting Works -->
-                <div class="explanation-section">
-                    <h2>How Redistricting Works: The Mechanics</h2>
-                    <div class="explanation-card">
-                        <p class="lead">Understanding how redistricting affects district composition is crucial to understanding Proposition 50's impact.</p>
-                        
-                        <div class="mechanism-grid">
-                            <div class="mechanism-card">
-                                <h3>📊 "Cracking" Districts</h3>
-                                <p>When a district becomes more competitive, it often means Republican-leaning voters are removed ("cracked") and replaced with Democratic-leaning voters. This is what happens to the 5 targeted Republican districts.</p>
-                                <div class="example-box">
-                                    <strong>Example:</strong> CA-41 loses Republican-leaning areas and gains Democratic-leaning areas, shifting from a Republican stronghold to a competitive district.
-                                </div>
-                            </div>
-                            
-                            <div class="mechanism-card">
-                                <h3>📦 "Packing" Districts</h3>
-                                <p>To make some districts more competitive, those removed Republican voters must go somewhere. They're often "packed" into neighboring districts, making those districts even more safely Republican.</p>
-                                <div class="example-box">
-                                    <strong>Example:</strong> CA-23 and CA-50 become more Republican as they absorb Republican voters removed from competitive districts.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="redistricting-explanation">
-                            <h3>Why This Matters</h3>
-                            <p>When redistricting makes 5 Republican districts more competitive:</p>
-                            <ul>
-                                <li><strong>Those Republican voters don't disappear</strong> - they're moved to other districts</li>
-                                <li><strong>Neighboring districts become more Republican</strong> - creating "safe" Republican districts</li>
-                                <li><strong>This reduces overall competitiveness</strong> - more districts become either safely Democratic or safely Republican</li>
-                                <li><strong>The net effect</strong> - fewer competitive districts overall, but more districts favoring Democrats</li>
-                            </ul>
-                            <p class="key-insight"><strong>Key Insight:</strong> Redistricting is a zero-sum game. Making some districts more Democratic often means making other districts more Republican, reducing overall competitive districts.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comprehensive Arguments Section -->
-                <div class="section section-alt">
-                    <div class="container">
-                        <h2>Arguments For & Against: Multiple Perspectives</h2>
-                        <p class="section-intro">Below are arguments from various stakeholders, organizations, and perspectives. These views represent diverse viewpoints beyond traditional party lines.</p>
-                        
-                        <div class="arguments-container">
-                            <div class="arguments-column">
-                                <h3>Arguments in Favor</h3>
-                                
-                                <div class="argument-group">
-                                    <h4>🏛️ Democratic Leaders & Elected Officials</h4>
-                                    <div class="argument-card support">
-                                        <p><strong>Former President Barack Obama:</strong> "This measure is essential to counteract Republican redistricting efforts in states like Texas. It's about maintaining balance in Congress and protecting democratic processes."</p>
-                                        <span class="argument-source">Source: AP News, October 2025</span>
-                                    </div>
-                                    <div class="argument-card support">
-                                        <p><strong>Governor Gavin Newsom:</strong> "Proposition 50 gives Californians the power to push back against attempts to shred democracy. It's a necessary response to partisan gerrymandering."</p>
-                                        <span class="argument-source">Source: California Governor's Office, August 2025</span>
-                                    </div>
-                                </div>
-
-                                <div class="argument-group">
-                                    <h4>🎓 Academic & Research Perspectives</h4>
-                                    <div class="argument-card support">
-                                        <p><strong>Cal Poly Pomona Study:</strong> "The proposed maps would strengthen Latino representation across California, maintaining 16 Latino-majority districts and increasing Latino-influence districts from 6 to 8."</p>
-                                        <span class="argument-source">Source: Cal Poly Pomona Political Science Research, October 2025</span>
-                                    </div>
-                                    <div class="argument-card support">
-                                        <p><strong>Redistricting Expert:</strong> "The new districts are more compact and reduce city and county splits compared to current maps, which could improve representation."</p>
-                                        <span class="argument-source">Source: Redistricting Analysis</span>
-                                    </div>
-                                </div>
-
-                                <div class="argument-group">
-                                    <h4>👥 Community & Advocacy Groups</h4>
-                                    <div class="argument-card support">
-                                        <p><strong>Voting Rights Advocates:</strong> "This measure helps ensure fair representation by countering gerrymandering efforts in other states. It's a temporary measure that protects democratic principles."</p>
-                                        <span class="argument-source">Source: Various Advocacy Organizations</span>
-                                    </div>
-                                    <div class="argument-card support">
-                                        <p><strong>Minority Representation Groups:</strong> "The proposed maps improve representation for Latino communities and maintain minority-majority districts better than current maps."</p>
-                                        <span class="argument-source">Source: Community Organizations</span>
-                                    </div>
-                                </div>
-
-                                <div class="argument-group">
-                                    <h4>💰 Political Action Committees</h4>
-                                    <div class="argument-card support">
-                                        <p><strong>Yes on Prop 50 Campaign:</strong> "This is a defensive measure. When other states engage in partisan redistricting, California must respond to protect fair representation in Congress."</p>
-                                        <span class="argument-source">Source: Campaign Materials</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="arguments-column">
-                                <h3>Arguments Against</h3>
-                                
-                                <div class="argument-group">
-                                    <h4>🏛️ Republican Leaders & Elected Officials</h4>
-                                    <div class="argument-card oppose">
-                                        <p><strong>Representative Doug LaMalfa:</strong> "This is a partisan power grab that undermines California's independent redistricting commission. It's designed to eliminate Republican representation."</p>
-                                        <span class="argument-source">Source: AP News, October 2025</span>
-                                    </div>
-                                    <div class="argument-card oppose">
-                                        <p><strong>Republican State Legislators:</strong> "This measure abandons the nonpartisan redistricting process that California voters established. It's hypocritical to fight gerrymandering with gerrymandering."</p>
-                                        <span class="argument-source">Source: California Republican Party</span>
-                                    </div>
-                                </div>
-
-                                <div class="argument-group">
-                                    <h4>🎓 Former State Officials</h4>
-                                    <div class="argument-card oppose">
-                                        <p><strong>Former Governor Arnold Schwarzenegger:</strong> "This proposition betrays the independent redistricting process I championed. It undermines the very principles of nonpartisan redistricting that California voters supported."</p>
-                                        <span class="argument-source">Source: AP News, September 2025</span>
-                                    </div>
-                                </div>
-
-                                <div class="argument-group">
-                                    <h4>👥 Good Government & Reform Groups</h4>
-                                    <div class="argument-card oppose">
-                                        <p><strong>Redistricting Reform Advocates:</strong> "This sets a dangerous precedent. If California engages in partisan redistricting, it undermines the argument for nonpartisan commissions nationwide."</p>
-                                        <span class="argument-source">Source: Reform Organizations</span>
-                                    </div>
-                                    <div class="argument-card oppose">
-                                        <p><strong>Transparency Advocates:</strong> "The process bypassed normal procedures and rushed through legislation. This undermines public trust in the redistricting process."</p>
-                                        <span class="argument-source">Source: Transparency Groups</span>
-                                    </div>
-                                </div>
-
-                                <div class="argument-group">
-                                    <h4>🏛️ Legal & Constitutional Concerns</h4>
-                                    <div class="argument-card oppose">
-                                        <p><strong>Constitutional Scholars:</strong> "This measure temporarily suspends the independent commission process, which voters established through Proposition 11 and 20. It may set a precedent for future political manipulation."</p>
-                                        <span class="argument-source">Source: Legal Analysis</span>
-                                    </div>
-                                    <div class="argument-card oppose">
-                                        <p><strong>Republican Legislators Lawsuit:</strong> "The legislative process violated required waiting periods and procedural requirements. The court rejected this challenge, but concerns remain about process."</p>
-                                        <span class="argument-source">Source: Legal Filings, August 2025</span>
-                                    </div>
-                                </div>
-
-                                <div class="argument-group">
-                                    <h4>💰 Fiscal Concerns</h4>
-                                    <div class="argument-card oppose">
-                                        <p><strong>Taxpayer Groups:</strong> "The special election costs $282 million. This is an expensive political maneuver that could have been avoided."</p>
-                                        <span class="argument-source">Source: Fiscal Analysis</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card" style="margin-top: 2rem;">
-                            <h3>Note on Diverse Perspectives</h3>
-                            <p>This section attempts to compile arguments from various sources beyond traditional party lines. However, some groups may not have publicly stated positions, and some perspectives may not be fully represented here. We encourage readers to seek out additional sources and verify claims independently.</p>
-                            <p><strong>Sources include:</strong> News organizations, academic research, campaign materials, legal filings, advocacy organizations, and public statements from elected officials.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Political Perspectives -->
-                <div class="perspectives-section">
-                    <h2>Political Perspectives</h2>
-                    <div class="perspectives-grid">
-                        <div class="perspective-card support">
-                            <h3>In Support</h3>
-                            <div class="perspective-content">
-                                <p><strong>Key Supporters:</strong></p>
-                                <ul>
-                                    <li><strong>Former President Barack Obama</strong> - Endorsed the measure, emphasizing its importance in maintaining balanced congressional representation and countering Republican redistricting efforts.</li>
-                                    <li><strong>Governor Gavin Newsom</strong> - Advocates for the measure as a necessary response to counteract partisan redistricting.</li>
-                                    <li><strong>Democratic Party Leaders</strong> - Support the measure as a response to gerrymandering in other states.</li>
-                                </ul>
-                                <p class="perspective-reason"><strong>Rationale:</strong> Proponents argue that Proposition 50 is necessary to counteract partisan redistricting efforts in other states (like Texas) and to ensure fair representation in Congress. They emphasize that it's a temporary measure that will return control to the independent commission after the 2030 Census.</p>
-                            </div>
-                        </div>
-                        <div class="perspective-card oppose">
-                            <h3>In Opposition</h3>
-                            <div class="perspective-content">
-                                <p><strong>Key Opponents:</strong></p>
-                                <ul>
-                                    <li><strong>Former Governor Arnold Schwarzenegger</strong> - Publicly opposes the measure, describing it as a partisan power grab that betrays the principles of nonpartisan redistricting he championed.</li>
-                                    <li><strong>Republican Party Leaders</strong> - Oppose the measure as undermining the independent redistricting process.</li>
-                                    <li><strong>Good Government Groups</strong> - Some nonpartisan groups argue it sets a bad precedent.</li>
-                                </ul>
-                                <p class="perspective-reason"><strong>Rationale:</strong> Critics contend that the proposition undermines the independent redistricting process established in California. They argue that adopting partisan redistricting tactics undermines the integrity of California's independent redistricting process, which was created to avoid exactly this type of partisan manipulation.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>Purpose</h3>
+                <p>
+                  Authorize temporary redrawing of California's congressional
+                  district maps in response to partisan redistricting efforts in
+                  states like Texas.
+                </p>
+              </div>
+              <div class="info-card">
+                <h3>Timeline</h3>
+                <p>
+                  New maps would be used for the
+                  <strong>2026, 2028, and 2030</strong> elections. After the
+                  2030 Census, the independent California Citizens Redistricting
+                  Commission would resume its role.
+                </p>
+              </div>
+              <div class="info-card">
+                <h3>Fiscal Impact</h3>
+                <p>
+                  One-time costs to counties:
+                  <strong>up to a few million dollars</strong> statewide. State
+                  government costs: <strong>approximately $200,000</strong>.
+                </p>
+              </div>
+              <div class="info-card">
+                <h3>Key Date</h3>
+                <p>Special Election: <strong>November 4, 2025</strong></p>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- District Changes Section -->
-        <section id="districts" class="section section-alt">
-            <div class="container">
-                <h2>District-by-District Analysis</h2>
-                <p class="section-intro">Detailed breakdown of how Proposition 50 would change each affected congressional district.</p>
-                
-                <div class="district-filters">
-                    <button class="filter-btn active" data-filter="all">All Districts</button>
-                    <button class="filter-btn" data-filter="republican">Republican-Held</button>
-                    <button class="filter-btn" data-filter="democratic">Democratic-Held</button>
-                    <button class="filter-btn" data-filter="major">Major Changes</button>
-                </div>
-
-                <div class="districts-container" id="districtsContainer">
-                    <!-- Districts will be populated by JavaScript -->
-                </div>
+          <!-- Key Statistics Dashboard -->
+          <div class="dashboard">
+            <h2>Key Statistics</h2>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Republican Districts Targeted</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Districts Analyzed</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Districts Become More Republican</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">2026-2030</div>
+                <div class="stat-label">Implementation Period</div>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- Impact Analysis Section -->
-        <section id="impact" class="section">
-            <div class="container">
-                <h2>Impact Analysis</h2>
-                
-                <div class="analysis-grid">
-                    <div class="analysis-card">
-                        <h3>Political Impact</h3>
-                        <ul>
-                            <li><strong>5 Republican-held districts</strong> would shift toward Democratic control</li>
-                            <li>Several swing districts would become safer for Democrats</li>
-                            <li>Potential impact on U.S. House of Representatives control</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="analysis-card">
-                        <h3>Geographic Impact</h3>
-                        <ul>
-                            <li>Southern California: Only 5 out of 30 districts unchanged</li>
-                            <li>Significant shifts in Northern California districts</li>
-                            <li>Changes concentrated in competitive regions</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="analysis-card">
-                        <h3>Demographic Impact</h3>
-                        <ul>
-                            <li>16 Latino-majority districts maintained</li>
-                            <li>Latino-influence districts increase from 6 to 8</li>
-                            <li>Maintains representation for minority communities</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="analysis-card">
-                        <h3>Legal & Process Impact</h3>
-                        <ul>
-                            <li>Temporarily bypasses independent Citizens Redistricting Commission</li>
-                            <li>Returns control to commission after 2030 Census</li>
-                            <li>Establishes state policy favoring nonpartisan redistricting nationwide</li>
-                        </ul>
-                    </div>
+          <!-- How Redistricting Works -->
+          <div class="explanation-section">
+            <h2>How Redistricting Works: The Mechanics</h2>
+            <div class="explanation-card">
+              <p class="lead">
+                Understanding how redistricting affects district composition is
+                crucial to understanding Proposition 50's impact.
+              </p>
+
+              <div class="mechanism-grid">
+                <div class="mechanism-card">
+                  <h3>📊 "Cracking" Districts</h3>
+                  <p>
+                    When a district becomes more competitive, it often means
+                    Republican-leaning voters are removed ("cracked") and
+                    replaced with Democratic-leaning voters. This is what
+                    happens to the 5 targeted Republican districts.
+                  </p>
+                  <div class="example-box">
+                    <strong>Example:</strong> CA-41 loses Republican-leaning
+                    areas and gains Democratic-leaning areas, shifting from a
+                    Republican stronghold to a competitive district.
+                  </div>
                 </div>
 
-                <!-- Key District Changes Table -->
-                <div class="table-container">
-                    <h3>Major District Changes</h3>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>District</th>
-                                <th>Current Representative</th>
-                                <th>Current Party</th>
-                                <th>Key Changes</th>
-                                <th>Projected Impact</th>
-                            </tr>
-                        </thead>
-                        <tbody id="districtTableBody">
-                            <!-- Populated by JavaScript -->
-                        </tbody>
-                    </table>
+                <div class="mechanism-card">
+                  <h3>📦 "Packing" Districts</h3>
+                  <p>
+                    To make some districts more competitive, those removed
+                    Republican voters must go somewhere. They're often "packed"
+                    into neighboring districts, making those districts even more
+                    safely Republican.
+                  </p>
+                  <div class="example-box">
+                    <strong>Example:</strong> CA-23 and CA-50 become more
+                    Republican as they absorb Republican voters removed from
+                    competitive districts.
+                  </div>
                 </div>
+              </div>
+
+              <div class="redistricting-explanation">
+                <h3>Why This Matters</h3>
+                <p>
+                  When redistricting makes 5 Republican districts more
+                  competitive:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Those Republican voters don't disappear</strong> -
+                    they're moved to other districts
+                  </li>
+                  <li>
+                    <strong
+                      >Neighboring districts become more Republican</strong
+                    >
+                    - creating "safe" Republican districts
+                  </li>
+                  <li>
+                    <strong>This reduces overall competitiveness</strong> - more
+                    districts become either safely Democratic or safely
+                    Republican
+                  </li>
+                  <li>
+                    <strong>The net effect</strong> - fewer competitive
+                    districts overall, but more districts favoring Democrats
+                  </li>
+                </ul>
+                <p class="key-insight">
+                  <strong>Key Insight:</strong> Redistricting is a zero-sum
+                  game. Making some districts more Democratic often means making
+                  other districts more Republican, reducing overall competitive
+                  districts.
+                </p>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- Visualizations Section -->
-        <section id="visualizations" class="section section-alt">
+          <!-- Comprehensive Arguments Section -->
+          <div class="section section-alt">
             <div class="container">
-                <h2>Data Visualizations</h2>
-                
-                <div class="viz-grid">
-                    <div class="viz-card">
-                        <h3>District Party Changes</h3>
-                        <canvas id="partyChangeChart"></canvas>
-                    </div>
-                    
-                    <div class="viz-card">
-                        <h3>Vote Share Impact</h3>
-                        <canvas id="voteShareChart"></canvas>
-                    </div>
-                    
-                    <div class="viz-card full-width">
-                        <h3>District Competitiveness Analysis</h3>
-                        <canvas id="competitivenessChart"></canvas>
-                    </div>
-                    
-                    <div class="viz-card full-width">
-                        <h3>Geographic Distribution of Changes</h3>
-                        <div id="mapContainer" class="map-container">
-                            <div class="map-placeholder">
-                                <p>Interactive map visualization would appear here</p>
-                                <p class="map-note">Note: Actual district boundary data would require GIS files from the California Secretary of State</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+              <h2>Arguments For & Against: Multiple Perspectives</h2>
+              <p class="section-intro">
+                Below are arguments from various stakeholders, organizations,
+                and perspectives. These views represent diverse viewpoints
+                beyond traditional party lines.
+              </p>
 
-        <!-- Sources Section -->
-        <section id="sources" class="section">
-            <div class="container">
-                <h2>Sources & Citations</h2>
-                <div class="sources-container">
-                    <div class="source-category">
-                        <h3>Official Government Sources</h3>
-                        <ul class="sources-list">
-                            <li>
-                                <a href="https://voterguide.sos.ca.gov/quick-reference-guide/50.htm" target="_blank" rel="noopener noreferrer">
-                                    California Secretary of State - Proposition 50 Quick Reference Guide
-                                </a>
-                                <p class="source-description">Official voter guide with proposition summary and key information</p>
-                            </li>
-                            <li>
-                                <a href="https://voterguide.sos.ca.gov/proposition/50/title-summary.htm" target="_blank" rel="noopener noreferrer">
-                                    California Secretary of State - Proposition 50 Title and Summary
-                                </a>
-                                <p class="source-description">Complete official title and summary text</p>
-                            </li>
-                            <li>
-                                <a href="https://elections.cdn.sos.ca.gov/statewide-elections/public-display/prop-50-leg-analysis2.pdf" target="_blank" rel="noopener noreferrer">
-                                    Legislative Analyst's Office - Proposition 50 Analysis (PDF)
-                                </a>
-                                <p class="source-description">Comprehensive fiscal and legal analysis with district maps</p>
-                            </li>
-                            <li>
-                                <a href="https://www.sos.ca.gov/elections/ballot-measures" target="_blank" rel="noopener noreferrer">
-                                    California Secretary of State - Ballot Measures
-                                </a>
-                                <p class="source-description">Official ballot measures portal</p>
-                            </li>
-                            <li>
-                                <a href="https://wedrawthelines.ca.gov/" target="_blank" rel="noopener noreferrer">
-                                    California Citizens Redistricting Commission
-                                </a>
-                                <p class="source-description">Information about the independent redistricting commission</p>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="source-category">
-                        <h3>News & Media Coverage</h3>
-                        <ul class="sources-list">
-                            <li>
-                                <a href="https://laist.com/news/politics/proposition-50-voter-guide-california" target="_blank" rel="noopener noreferrer">
-                                    LAist - Proposition 50 Voter Guide
-                                </a>
-                                <p class="source-description">Detailed analysis of district changes and impacts</p>
-                            </li>
-                            <li>
-                                <a href="https://apnews.com/article/c3961c1de1c93a57904e7b8df9a1a3fb" target="_blank" rel="noopener noreferrer">
-                                    Associated Press - Obama supports Proposition 50
-                                </a>
-                                <p class="source-description">News coverage of former President Obama's endorsement</p>
-                            </li>
-                            <li>
-                                <a href="https://apnews.com/article/d15c5dcad9829b94c42cea1118ea782d" target="_blank" rel="noopener noreferrer">
-                                    Associated Press - Schwarzenegger opposes Proposition 50
-                                </a>
-                                <p class="source-description">Coverage of former Governor Schwarzenegger's opposition</p>
-                            </li>
-                            <li>
-                                <a href="https://apnews.com/article/50775af2fd73c065499e8f5510302be1" target="_blank" rel="noopener noreferrer">
-                                    Associated Press - Conservative voters fear losing power
-                                </a>
-                                <p class="source-description">Analysis of Northern California voter concerns</p>
-                            </li>
-                            <li>
-                                <a href="https://www.axios.com/2025/08/20/newsom-poll-california-redistricting" target="_blank" rel="noopener noreferrer">
-                                    Axios - Newsom poll shows support for redistricting
-                                </a>
-                                <p class="source-description">Polling data on Proposition 50 support</p>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="source-category">
-                        <h3>Interactive Tools & Maps</h3>
-                        <ul class="sources-list">
-                            <li>
-                                <a href="https://prop50.politizen.org/" target="_blank" rel="noopener noreferrer">
-                                    Politizen - Interactive Proposition 50 Map Tool
-                                </a>
-                                <p class="source-description">Enter your address to see how Proposition 50 would affect your district</p>
-                            </li>
-                            <li>
-                                <a href="https://www.sos.ca.gov/elections/prior-elections/statewide-election-results" target="_blank" rel="noopener noreferrer">
-                                    California Secretary of State - Election Results
-                                </a>
-                                <p class="source-description">Historical election results and district data</p>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="source-category">
-                        <h3>Academic & Research Sources</h3>
-                        <ul class="sources-list">
-                            <li>
-                                <a href="https://en.wikipedia.org/wiki/2025_California_Proposition_50" target="_blank" rel="noopener noreferrer">
-                                    Wikipedia - 2025 California Proposition 50
-                                </a>
-                                <p class="source-description">Comprehensive overview with citations</p>
-                            </li>
-                            <li>
-                                <a href="https://www.cpp.edu/news/content/2025/10/political-science-professors-study-reveals-prop-50-map-would-strengthen-latino-representation-across-california/index.shtml" target="_blank" rel="noopener noreferrer">
-                                    Cal Poly Pomona - Latino Representation Study
-                                </a>
-                                <p class="source-description">Academic research on demographic impacts</p>
-                            </li>
-                            <li>
-                                <a href="https://www.brennancenter.org/our-work/research-reports/gerrymandering-explained" target="_blank" rel="noopener noreferrer">
-                                    Brennan Center - Gerrymandering Explained
-                                </a>
-                                <p class="source-description">Educational resource on redistricting concepts</p>
-                            </li>
-                        </ul>
-                    </div>
+              <div class="arguments-container">
+                <div class="arguments-column">
+                  <h3>Arguments in Favor</h3>
 
-                    <div class="source-category">
-                        <h3>District & Voting Data</h3>
-                        <ul class="sources-list">
-                            <li>
-                                <a href="https://www.census.gov/programs-surveys/decennial-census/about/rdo.html" target="_blank" rel="noopener noreferrer">
-                                    U.S. Census Bureau - Redistricting Data
-                                </a>
-                                <p class="source-description">Official census data used for redistricting</p>
-                            </li>
-                            <li>
-                                <a href="https://ballotpedia.org/California_Proposition_50,_Congressional_Redistricting_Amendment_(2025)" target="_blank" rel="noopener noreferrer">
-                                    Ballotpedia - Proposition 50 Entry
-                                </a>
-                                <p class="source-description">Comprehensive ballot measure information</p>
-                            </li>
-                        </ul>
+                  <div class="argument-group">
+                    <h4>🏛️ Democratic Leaders & Elected Officials</h4>
+                    <div class="argument-card support">
+                      <p>
+                        <strong>Former President Barack Obama:</strong> "This
+                        measure is essential to counteract Republican
+                        redistricting efforts in states like Texas. It's about
+                        maintaining balance in Congress and protecting
+                        democratic processes."
+                      </p>
+                      <span class="argument-source"
+                        >Source: AP News, October 2025</span
+                      >
                     </div>
+                    <div class="argument-card support">
+                      <p>
+                        <strong>Governor Gavin Newsom:</strong> "Proposition 50
+                        gives Californians the power to push back against
+                        attempts to shred democracy. It's a necessary response
+                        to partisan gerrymandering."
+                      </p>
+                      <span class="argument-source"
+                        >Source: California Governor's Office, August 2025</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="argument-group">
+                    <h4>🎓 Academic & Research Perspectives</h4>
+                    <div class="argument-card support">
+                      <p>
+                        <strong>Cal Poly Pomona Study:</strong> "The proposed
+                        maps would strengthen Latino representation across
+                        California, maintaining 16 Latino-majority districts and
+                        increasing Latino-influence districts from 6 to 8."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Cal Poly Pomona Political Science Research,
+                        October 2025</span
+                      >
+                    </div>
+                    <div class="argument-card support">
+                      <p>
+                        <strong>Redistricting Expert:</strong> "The new
+                        districts are more compact and reduce city and county
+                        splits compared to current maps, which could improve
+                        representation."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Redistricting Analysis</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="argument-group">
+                    <h4>👥 Community & Advocacy Groups</h4>
+                    <div class="argument-card support">
+                      <p>
+                        <strong>Voting Rights Advocates:</strong> "This measure
+                        helps ensure fair representation by countering
+                        gerrymandering efforts in other states. It's a temporary
+                        measure that protects democratic principles."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Various Advocacy Organizations</span
+                      >
+                    </div>
+                    <div class="argument-card support">
+                      <p>
+                        <strong>Minority Representation Groups:</strong> "The
+                        proposed maps improve representation for Latino
+                        communities and maintain minority-majority districts
+                        better than current maps."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Community Organizations</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="argument-group">
+                    <h4>💰 Political Action Committees</h4>
+                    <div class="argument-card support">
+                      <p>
+                        <strong>Yes on Prop 50 Campaign:</strong> "This is a
+                        defensive measure. When other states engage in partisan
+                        redistricting, California must respond to protect fair
+                        representation in Congress."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Campaign Materials</span
+                      >
+                    </div>
+                  </div>
                 </div>
+
+                <div class="arguments-column">
+                  <h3>Arguments Against</h3>
+
+                  <div class="argument-group">
+                    <h4>🏛️ Republican Leaders & Elected Officials</h4>
+                    <div class="argument-card oppose">
+                      <p>
+                        <strong>Representative Doug LaMalfa:</strong> "This is a
+                        partisan power grab that undermines California's
+                        independent redistricting commission. It's designed to
+                        eliminate Republican representation."
+                      </p>
+                      <span class="argument-source"
+                        >Source: AP News, October 2025</span
+                      >
+                    </div>
+                    <div class="argument-card oppose">
+                      <p>
+                        <strong>Republican State Legislators:</strong> "This
+                        measure abandons the nonpartisan redistricting process
+                        that California voters established. It's hypocritical to
+                        fight gerrymandering with gerrymandering."
+                      </p>
+                      <span class="argument-source"
+                        >Source: California Republican Party</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="argument-group">
+                    <h4>🎓 Former State Officials</h4>
+                    <div class="argument-card oppose">
+                      <p>
+                        <strong>Former Governor Arnold Schwarzenegger:</strong>
+                        "This proposition betrays the independent redistricting
+                        process I championed. It undermines the very principles
+                        of nonpartisan redistricting that California voters
+                        supported."
+                      </p>
+                      <span class="argument-source"
+                        >Source: AP News, September 2025</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="argument-group">
+                    <h4>👥 Good Government & Reform Groups</h4>
+                    <div class="argument-card oppose">
+                      <p>
+                        <strong>Redistricting Reform Advocates:</strong> "This
+                        sets a dangerous precedent. If California engages in
+                        partisan redistricting, it undermines the argument for
+                        nonpartisan commissions nationwide."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Reform Organizations</span
+                      >
+                    </div>
+                    <div class="argument-card oppose">
+                      <p>
+                        <strong>Transparency Advocates:</strong> "The process
+                        bypassed normal procedures and rushed through
+                        legislation. This undermines public trust in the
+                        redistricting process."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Transparency Groups</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="argument-group">
+                    <h4>🏛️ Legal & Constitutional Concerns</h4>
+                    <div class="argument-card oppose">
+                      <p>
+                        <strong>Constitutional Scholars:</strong> "This measure
+                        temporarily suspends the independent commission process,
+                        which voters established through Proposition 11 and 20.
+                        It may set a precedent for future political
+                        manipulation."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Legal Analysis</span
+                      >
+                    </div>
+                    <div class="argument-card oppose">
+                      <p>
+                        <strong>Republican Legislators Lawsuit:</strong> "The
+                        legislative process violated required waiting periods
+                        and procedural requirements. The court rejected this
+                        challenge, but concerns remain about process."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Legal Filings, August 2025</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="argument-group">
+                    <h4>💰 Fiscal Concerns</h4>
+                    <div class="argument-card oppose">
+                      <p>
+                        <strong>Taxpayer Groups:</strong> "The special election
+                        costs $282 million. This is an expensive political
+                        maneuver that could have been avoided."
+                      </p>
+                      <span class="argument-source"
+                        >Source: Fiscal Analysis</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card" style="margin-top: 2rem">
+                <h3>Note on Diverse Perspectives</h3>
+                <p>
+                  This section attempts to compile arguments from various
+                  sources beyond traditional party lines. However, some groups
+                  may not have publicly stated positions, and some perspectives
+                  may not be fully represented here. We encourage readers to
+                  seek out additional sources and verify claims independently.
+                </p>
+                <p>
+                  <strong>Sources include:</strong> News organizations, academic
+                  research, campaign materials, legal filings, advocacy
+                  organizations, and public statements from elected officials.
+                </p>
+              </div>
             </div>
-        </section>
+          </div>
+
+          <!-- Political Perspectives -->
+          <div class="perspectives-section">
+            <h2>Political Perspectives</h2>
+            <div class="perspectives-grid">
+              <div class="perspective-card support">
+                <h3>In Support</h3>
+                <div class="perspective-content">
+                  <p><strong>Key Supporters:</strong></p>
+                  <ul>
+                    <li>
+                      <strong>Former President Barack Obama</strong> - Endorsed
+                      the measure, emphasizing its importance in maintaining
+                      balanced congressional representation and countering
+                      Republican redistricting efforts.
+                    </li>
+                    <li>
+                      <strong>Governor Gavin Newsom</strong> - Advocates for the
+                      measure as a necessary response to counteract partisan
+                      redistricting.
+                    </li>
+                    <li>
+                      <strong>Democratic Party Leaders</strong> - Support the
+                      measure as a response to gerrymandering in other states.
+                    </li>
+                  </ul>
+                  <p class="perspective-reason">
+                    <strong>Rationale:</strong> Proponents argue that
+                    Proposition 50 is necessary to counteract partisan
+                    redistricting efforts in other states (like Texas) and to
+                    ensure fair representation in Congress. They emphasize that
+                    it's a temporary measure that will return control to the
+                    independent commission after the 2030 Census.
+                  </p>
+                </div>
+              </div>
+              <div class="perspective-card oppose">
+                <h3>In Opposition</h3>
+                <div class="perspective-content">
+                  <p><strong>Key Opponents:</strong></p>
+                  <ul>
+                    <li>
+                      <strong>Former Governor Arnold Schwarzenegger</strong> -
+                      Publicly opposes the measure, describing it as a partisan
+                      power grab that betrays the principles of nonpartisan
+                      redistricting he championed.
+                    </li>
+                    <li>
+                      <strong>Republican Party Leaders</strong> - Oppose the
+                      measure as undermining the independent redistricting
+                      process.
+                    </li>
+                    <li>
+                      <strong>Good Government Groups</strong> - Some nonpartisan
+                      groups argue it sets a bad precedent.
+                    </li>
+                  </ul>
+                  <p class="perspective-reason">
+                    <strong>Rationale:</strong> Critics contend that the
+                    proposition undermines the independent redistricting process
+                    established in California. They argue that adopting partisan
+                    redistricting tactics undermines the integrity of
+                    California's independent redistricting process, which was
+                    created to avoid exactly this type of partisan manipulation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- District Changes Section -->
+      <section id="districts" class="section section-alt">
+        <div class="container">
+          <h2>District-by-District Analysis</h2>
+          <p class="section-intro">
+            Detailed breakdown of how Proposition 50 would change each affected
+            congressional district.
+          </p>
+
+          <div class="district-filters">
+            <button class="filter-btn active" data-filter="all">
+              All Districts
+            </button>
+            <button class="filter-btn" data-filter="republican">
+              Republican-Held
+            </button>
+            <button class="filter-btn" data-filter="democratic">
+              Democratic-Held
+            </button>
+            <button class="filter-btn" data-filter="major">
+              Major Changes
+            </button>
+          </div>
+
+          <div class="districts-container" id="districtsContainer">
+            <!-- Districts will be populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact Analysis Section -->
+      <section id="impact" class="section">
+        <div class="container">
+          <h2>Impact Analysis</h2>
+
+          <div class="analysis-grid">
+            <div class="analysis-card">
+              <h3>Political Impact</h3>
+              <ul>
+                <li>
+                  <strong>5 Republican-held districts</strong> would shift
+                  toward Democratic control
+                </li>
+                <li>
+                  Several swing districts would become safer for Democrats
+                </li>
+                <li>
+                  Potential impact on U.S. House of Representatives control
+                </li>
+              </ul>
+            </div>
+
+            <div class="analysis-card">
+              <h3>Geographic Impact</h3>
+              <ul>
+                <li>
+                  Southern California: Only 5 out of 30 districts unchanged
+                </li>
+                <li>Significant shifts in Northern California districts</li>
+                <li>Changes concentrated in competitive regions</li>
+              </ul>
+            </div>
+
+            <div class="analysis-card">
+              <h3>Demographic Impact</h3>
+              <ul>
+                <li>16 Latino-majority districts maintained</li>
+                <li>Latino-influence districts increase from 6 to 8</li>
+                <li>Maintains representation for minority communities</li>
+              </ul>
+            </div>
+
+            <div class="analysis-card">
+              <h3>Legal & Process Impact</h3>
+              <ul>
+                <li>
+                  Temporarily bypasses independent Citizens Redistricting
+                  Commission
+                </li>
+                <li>Returns control to commission after 2030 Census</li>
+                <li>
+                  Establishes state policy favoring nonpartisan redistricting
+                  nationwide
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Key District Changes Table -->
+          <div class="table-container">
+            <h3>Major District Changes</h3>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>District</th>
+                  <th>Current Representative</th>
+                  <th>Current Party</th>
+                  <th>Key Changes</th>
+                  <th>Projected Impact</th>
+                </tr>
+              </thead>
+              <tbody id="districtTableBody">
+                <!-- Populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visualizations Section -->
+      <section id="visualizations" class="section section-alt">
+        <div class="container">
+          <h2>Data Visualizations</h2>
+
+          <div class="viz-grid">
+            <div class="viz-card">
+              <h3>District Party Changes</h3>
+              <canvas id="partyChangeChart"></canvas>
+            </div>
+
+            <div class="viz-card">
+              <h3>Vote Share Impact</h3>
+              <canvas id="voteShareChart"></canvas>
+            </div>
+
+            <div class="viz-card full-width">
+              <h3>District Competitiveness Analysis</h3>
+              <canvas id="competitivenessChart"></canvas>
+            </div>
+
+            <div class="viz-card full-width">
+              <h3>Geographic Distribution of Changes</h3>
+              <div id="mapContainer" class="map-container">
+                <div class="map-placeholder">
+                  <p>Interactive map visualization would appear here</p>
+                  <p class="map-note">
+                    Note: Actual district boundary data would require GIS files
+                    from the California Secretary of State
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sources Section -->
+      <section id="sources" class="section">
+        <div class="container">
+          <h2>Sources & Citations</h2>
+          <div class="sources-container">
+            <div class="source-category">
+              <h3>Official Government Sources</h3>
+              <ul class="sources-list">
+                <li>
+                  <a
+                    href="https://voterguide.sos.ca.gov/quick-reference-guide/50.htm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    California Secretary of State - Proposition 50 Quick
+                    Reference Guide
+                  </a>
+                  <p class="source-description">
+                    Official voter guide with proposition summary and key
+                    information
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://voterguide.sos.ca.gov/proposition/50/title-summary.htm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    California Secretary of State - Proposition 50 Title and
+                    Summary
+                  </a>
+                  <p class="source-description">
+                    Complete official title and summary text
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://elections.cdn.sos.ca.gov/statewide-elections/public-display/prop-50-leg-analysis2.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Legislative Analyst's Office - Proposition 50 Analysis (PDF)
+                  </a>
+                  <p class="source-description">
+                    Comprehensive fiscal and legal analysis with district maps
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://www.sos.ca.gov/elections/ballot-measures"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    California Secretary of State - Ballot Measures
+                  </a>
+                  <p class="source-description">
+                    Official ballot measures portal
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://wedrawthelines.ca.gov/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    California Citizens Redistricting Commission
+                  </a>
+                  <p class="source-description">
+                    Information about the independent redistricting commission
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="source-category">
+              <h3>News & Media Coverage</h3>
+              <ul class="sources-list">
+                <li>
+                  <a
+                    href="https://laist.com/news/politics/proposition-50-voter-guide-california"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    LAist - Proposition 50 Voter Guide
+                  </a>
+                  <p class="source-description">
+                    Detailed analysis of district changes and impacts
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://apnews.com/article/c3961c1de1c93a57904e7b8df9a1a3fb"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Associated Press - Obama supports Proposition 50
+                  </a>
+                  <p class="source-description">
+                    News coverage of former President Obama's endorsement
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://apnews.com/article/d15c5dcad9829b94c42cea1118ea782d"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Associated Press - Schwarzenegger opposes Proposition 50
+                  </a>
+                  <p class="source-description">
+                    Coverage of former Governor Schwarzenegger's opposition
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://apnews.com/article/50775af2fd73c065499e8f5510302be1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Associated Press - Conservative voters fear losing power
+                  </a>
+                  <p class="source-description">
+                    Analysis of Northern California voter concerns
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://www.axios.com/2025/08/20/newsom-poll-california-redistricting"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Axios - Newsom poll shows support for redistricting
+                  </a>
+                  <p class="source-description">
+                    Polling data on Proposition 50 support
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="source-category">
+              <h3>Interactive Tools & Maps</h3>
+              <ul class="sources-list">
+                <li>
+                  <a
+                    href="https://prop50.politizen.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Politizen - Interactive Proposition 50 Map Tool
+                  </a>
+                  <p class="source-description">
+                    Enter your address to see how Proposition 50 would affect
+                    your district
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://www.sos.ca.gov/elections/prior-elections/statewide-election-results"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    California Secretary of State - Election Results
+                  </a>
+                  <p class="source-description">
+                    Historical election results and district data
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="source-category">
+              <h3>Academic & Research Sources</h3>
+              <ul class="sources-list">
+                <li>
+                  <a
+                    href="https://en.wikipedia.org/wiki/2025_California_Proposition_50"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Wikipedia - 2025 California Proposition 50
+                  </a>
+                  <p class="source-description">
+                    Comprehensive overview with citations
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://www.cpp.edu/news/content/2025/10/political-science-professors-study-reveals-prop-50-map-would-strengthen-latino-representation-across-california/index.shtml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Cal Poly Pomona - Latino Representation Study
+                  </a>
+                  <p class="source-description">
+                    Academic research on demographic impacts
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://www.brennancenter.org/our-work/research-reports/gerrymandering-explained"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Brennan Center - Gerrymandering Explained
+                  </a>
+                  <p class="source-description">
+                    Educational resource on redistricting concepts
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="source-category">
+              <h3>District & Voting Data</h3>
+              <ul class="sources-list">
+                <li>
+                  <a
+                    href="https://www.census.gov/programs-surveys/decennial-census/about/rdo.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    U.S. Census Bureau - Redistricting Data
+                  </a>
+                  <p class="source-description">
+                    Official census data used for redistricting
+                  </p>
+                </li>
+                <li>
+                  <a
+                    href="https://ballotpedia.org/California_Proposition_50,_Congressional_Redistricting_Amendment_(2025)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ballotpedia - Proposition 50 Entry
+                  </a>
+                  <p class="source-description">
+                    Comprehensive ballot measure information
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>This analysis is for informational purposes only. Data compiled from publicly available sources.</p>
-            <p class="footer-note">Last updated: October 2025</p>
-        </div>
+      <div class="container">
+        <p>
+          This analysis is for informational purposes only. Data compiled from
+          publicly available sources.
+        </p>
+        <p class="footer-note">Last updated: October 2025</p>
+      </div>
     </footer>
 
     <script src="data.js"></script>
     <script src="app.js"></script>
     <script>
-        // Auto-refresh functionality
-        let lastTimestamp = null;
-        const REFRESH_INTERVAL = 60000; // Check every 60 seconds
-        
-        function checkForUpdates() {
-            fetch('timestamp.json?' + new Date().getTime())
-                .then(response => response.json())
-                .then(data => {
-                    if (lastTimestamp && data.timestamp !== lastTimestamp) {
-                        console.log('Update detected, refreshing page...');
-                        location.reload();
-                    }
-                    lastTimestamp = data.timestamp;
-                })
-                .catch(err => console.log('Could not check for updates'));
-        }
-        
-        // Load and display last updated timestamp
-        fetch('timestamp.json')
-            .then(response => response.json())
-            .then(data => {
-                const updateTimeEl = document.getElementById('updateTime');
-                const updateTimezonesEl = document.getElementById('updateTimezones');
-                const updateTimestampEl = document.getElementById('updateTimestamp');
-                
-                if (updateTimeEl && data.lastUpdated) {
-                    updateTimeEl.textContent = data.lastUpdated;
-                }
-                if (updateTimezonesEl) {
-                    let timezonesHTML = '';
-                    if (data.lastUpdatedPST) {
-                        timezonesHTML += `<span class="timezone-item">${data.lastUpdatedPST}</span>`;
-                    }
-                    if (data.lastUpdatedMST) {
-                        timezonesHTML += `<span class="timezone-item">${data.lastUpdatedMST}</span>`;
-                    }
-                    updateTimezonesEl.innerHTML = timezonesHTML;
-                }
-                if (updateTimestampEl && data.timestamp) {
-                    updateTimestampEl.textContent = `Unix: ${data.timestamp}`;
-                    lastTimestamp = data.timestamp;
-                }
-                
-                // Start auto-refresh checking
-                setInterval(checkForUpdates, REFRESH_INTERVAL);
-            })
-            .catch(err => {
-                console.log('Could not load timestamp');
-            });
-    </script>
-</body>
-</html>
+      // Auto-refresh functionality
+      let lastTimestamp = null;
+      const REFRESH_INTERVAL = 60000; // Check every 60 seconds
 
+      function checkForUpdates() {
+        fetch("timestamp.json?" + new Date().getTime())
+          .then((response) => response.json())
+          .then((data) => {
+            if (lastTimestamp && data.timestamp !== lastTimestamp) {
+              console.log("Update detected, refreshing page...");
+              location.reload();
+            }
+            lastTimestamp = data.timestamp;
+          })
+          .catch((err) => console.log("Could not check for updates"));
+      }
+
+      // Load and display last updated timestamp
+      fetch("timestamp.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const updateTimeEl = document.getElementById("updateTime");
+          const updateTimezonesEl = document.getElementById("updateTimezones");
+          const updateTimestampEl = document.getElementById("updateTimestamp");
+
+          if (updateTimeEl && data.lastUpdated) {
+            updateTimeEl.textContent = data.lastUpdated;
+          }
+          if (updateTimezonesEl) {
+            let timezonesHTML = "";
+            if (data.lastUpdatedPST) {
+              timezonesHTML += `<span class="timezone-item">${data.lastUpdatedPST}</span>`;
+            }
+            if (data.lastUpdatedMST) {
+              timezonesHTML += `<span class="timezone-item">${data.lastUpdatedMST}</span>`;
+            }
+            updateTimezonesEl.innerHTML = timezonesHTML;
+          }
+          if (updateTimestampEl && data.timestamp) {
+            updateTimestampEl.textContent = `Unix: ${data.timestamp}`;
+            lastTimestamp = data.timestamp;
+          }
+
+          // Start auto-refresh checking
+          setInterval(checkForUpdates, REFRESH_INTERVAL);
+        })
+        .catch((err) => {
+          console.log("Could not load timestamp");
+        });
+    </script>
+  </body>
+</html>

@@ -661,6 +661,26 @@ body {
 .highlight-state:hover {
     opacity: 0.8;
     filter: brightness(1.1);
+    stroke-width: 3;
+}
+
+.clickable-state {
+    cursor: pointer;
+}
+
+.clickable-state:hover {
+    filter: brightness(1.2);
+    transform: scale(1.02);
+    transform-origin: center;
+}
+
+.clickable-label {
+    transition: all 0.2s;
+}
+
+.clickable-label:hover {
+    fill: var(--primary-dark);
+    font-size: 18px;
 }
 
 /* Arguments Section */

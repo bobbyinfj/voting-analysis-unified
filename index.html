@@ -60,91 +60,109 @@
                   stroke-width="2"
                 />
 
-                <!-- California -->
-                <path
-                  d="M50,280 L80,270 L100,290 L120,280 L130,300 L140,320 L130,350 L100,360 L80,340 L60,320 Z"
-                  fill="#4285f4"
-                  stroke="#1a5490"
-                  stroke-width="2"
-                  class="highlight-state"
-                  data-state="CA"
-                />
-                <text
-                  x="90"
-                  y="320"
-                  font-size="14"
-                  font-weight="bold"
-                  fill="white"
-                >
-                  CA
-                </text>
+                 <!-- California -->
+                 <path
+                   d="M50,280 L80,270 L100,290 L120,280 L130,300 L140,320 L130,350 L100,360 L80,340 L60,320 Z"
+                   fill="#4285f4"
+                   stroke="#1a5490"
+                   stroke-width="2"
+                   class="highlight-state clickable-state"
+                   data-state="CA"
+                   data-link="prop50.html"
+                   style="cursor: pointer;"
+                 />
+                 <text
+                   x="90"
+                   y="320"
+                   font-size="14"
+                   font-weight="bold"
+                   fill="white"
+                   pointer-events="none"
+                 >
+                   CA
+                 </text>
 
-                <!-- Washington -->
-                <path
-                  d="M70,80 L100,75 L120,90 L110,110 L90,115 L75,100 Z"
-                  fill="#2a9d8f"
-                  stroke="#1a5490"
-                  stroke-width="2"
-                  class="highlight-state"
-                  data-state="WA"
-                />
-                <text
-                  x="95"
-                  y="95"
-                  font-size="12"
-                  font-weight="bold"
-                  fill="white"
-                >
-                  WA
-                </text>
+                 <!-- Washington -->
+                 <path
+                   d="M70,80 L100,75 L120,90 L110,110 L90,115 L75,100 Z"
+                   fill="#2a9d8f"
+                   stroke="#1a5490"
+                   stroke-width="2"
+                   class="highlight-state clickable-state"
+                   data-state="WA"
+                   data-link="king-county.html"
+                   style="cursor: pointer;"
+                 />
+                 <text
+                   x="95"
+                   y="95"
+                   font-size="12"
+                   font-weight="bold"
+                   fill="white"
+                   pointer-events="none"
+                 >
+                   WA
+                 </text>
 
-                <!-- Colorado -->
-                <path
-                  d="M400,200 L430,195 L445,210 L435,230 L415,235 L395,220 Z"
-                  fill="#e63946"
-                  stroke="#1a5490"
-                  stroke-width="2"
-                  class="highlight-state"
-                  data-state="CO"
-                />
-                <text
-                  x="420"
-                  y="215"
-                  font-size="12"
-                  font-weight="bold"
-                  fill="white"
-                >
-                  CO
-                </text>
+                 <!-- Colorado -->
+                 <path
+                   d="M400,200 L430,195 L445,210 L435,230 L415,235 L395,220 Z"
+                   fill="#e63946"
+                   stroke="#1a5490"
+                   stroke-width="2"
+                   class="highlight-state clickable-state"
+                   data-state="CO"
+                   data-link="larimer-county.html"
+                   style="cursor: pointer;"
+                 />
+                 <text
+                   x="420"
+                   y="215"
+                   font-size="12"
+                   font-weight="bold"
+                   fill="white"
+                   pointer-events="none"
+                 >
+                   CO
+                 </text>
 
-                <!-- Labels -->
-                <text
-                  x="60"
-                  y="380"
-                  font-size="16"
-                  font-weight="600"
-                  fill="#1a5490"
-                >
-                  California Prop 50
-                </text>
-                <text
-                  x="60"
-                  y="120"
-                  font-size="16"
-                  font-weight="600"
-                  fill="#1a5490"
-                >
-                  King County, WA
-                </text>
-                <text
-                  x="400"
-                  y="260"
-                  font-size="16"
-                  font-weight="600"
-                  fill="#1a5490"
-                >
-                  Larimer County, CO
-                </text>
+                 <!-- Labels (also clickable) -->
+                 <text
+                   x="60"
+                   y="380"
+                   font-size="16"
+                   font-weight="600"
+                   fill="#1a5490"
+                   class="clickable-label"
+                   data-link="prop50.html"
+                   style="cursor: pointer; text-decoration: underline;"
+                 >
+                   California Prop 50
+                 </text>
+                 <text
+                   x="60"
+                   y="120"
+                   font-size="16"
+                   font-weight="600"
+                   fill="#1a5490"
+                   class="clickable-label"
+                   data-link="king-county.html"
+                   style="cursor: pointer; text-decoration: underline;"
+                 >
+                   King County, WA
+                 </text>
+                 <text
+                   x="400"
+                   y="260"
+                   font-size="16"
+                   font-weight="600"
+                   fill="#1a5490"
+                   class="clickable-label"
+                   data-link="larimer-county.html"
+                   style="cursor: pointer; text-decoration: underline;"
+                 >
+                   Larimer County, CO
+                 </text>
               </svg>
             </div>
           </div>
@@ -447,12 +465,35 @@
           .join("");
       }
 
-      // Load guides on page load
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", loadGuides);
-      } else {
-        loadGuides();
-      }
-    </script>
+       // Load guides on page load
+       if (document.readyState === "loading") {
+         document.addEventListener("DOMContentLoaded", loadGuides);
+       } else {
+         loadGuides();
+       }
+
+       // Interactive map functionality
+       document.addEventListener("DOMContentLoaded", function() {
+         // Make state paths clickable
+         document.querySelectorAll(".clickable-state").forEach(function(state) {
+           state.addEventListener("click", function() {
+             const link = this.getAttribute("data-link");
+             if (link) {
+               window.location.href = link;
+             }
+           });
+         });
+
+         // Make labels clickable
+         document.querySelectorAll(".clickable-label").forEach(function(label) {
+           label.addEventListener("click", function() {
+             const link = this.getAttribute("data-link");
+             if (link) {
+               window.location.href = link;
+             }
+           });
+         });
+       });
+     </script>
   </body>
 </html>
