@@ -1176,6 +1176,132 @@ body {
     }
 }
 
+/* Resource Sections - Bite/Snack/Meal Format */
+.resource-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.resource-bite,
+.resource-snack,
+.resource-meal {
+    padding: 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    transition: all 0.2s;
+}
+
+.resource-bite {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left-color: var(--accent-color);
+}
+
+.resource-bite h4 {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.resource-snack {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-left-color: var(--primary-color);
+}
+
+.resource-snack h4 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.resource-meal {
+    background: var(--bg-alt);
+    border-left-color: var(--success-color);
+    box-shadow: var(--shadow);
+}
+
+.resource-meal h4 {
+    color: var(--success-color);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.resource-bite p,
+.resource-snack p,
+.resource-meal p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.resource-bite p {
+    font-size: 0.95rem;
+}
+
+.resource-snack p {
+    font-size: 1rem;
+}
+
+.resource-meal p {
+    font-size: 1rem;
+}
+
+.resource-meal ul {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.resource-meal li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.resource-card {
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.resource-links {
+    margin-top: 2rem;
+}
+
+.resource-links h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.resources-container {
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .resource-levels {
+        gap: 1rem;
+    }
+    
+    .resource-bite,
+    .resource-snack,
+    .resource-meal {
+        padding: 1rem;
+    }
+    
+    .resource-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 @media (max-width: 480px) {
     .stats-grid {
         grid-template-columns: 1fr;
@@ -1183,6 +1309,12 @@ body {
     
     .stat-number {
         font-size: 2.5rem;
+    }
+    
+    .resource-bite h4,
+    .resource-snack h4,
+    .resource-meal h4 {
+        font-size: 0.85rem;
     }
 }
 
